@@ -2,14 +2,14 @@ import './Form.css'
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { Button, Card, Checkbox, Form, Input, notification } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
-import React  from 'react';
+import React, { useEffect } from 'react';
 import { loginUser } from '../../Context/action';
 import { useUserContext } from '../../Context/context';
 import jwt from 'jwt-decode'
 
 
 const Login = (props) => {
-    const [email, setEmail,password, setPassword] = useUserContext()
+    const [email, setEmail, password, setPassword] = useUserContext()
     const history = useNavigate()
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -20,20 +20,31 @@ const Login = (props) => {
                 bottom: 50,
                 duration: 1,
                 message: `User Login`
-                
-                
-              });
-              const token = user.data.token
-              const decoded = jwt(token)
-              if(decoded.role === "Super Admin"){
-                setTimeout(() => {
-                history('/dashboard')
 
-            }, 1000);
-              }
-            
+
+            });
+            const token = user.data.token
+            const decoded = jwt(token)
+            if (decoded.role === "Super Admin") {
+                setTimeout(() => {
+                    history('/dashboard')
+
+                }, 1000);
+            }
+
         }
     }
+    useEffect(() => {
+        const event = async (e) => {
+            e.preventDefault();
+            handleLogin()
+           
+        }
+    }, [])
+
+
+
+
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
@@ -41,7 +52,7 @@ const Login = (props) => {
         console.log('Failed:', errorInfo);
     };
     return (
-        
+
         <Form
             action='POST'
             name="normal_login"
@@ -58,8 +69,8 @@ const Login = (props) => {
                 left: '35rem'
 
             }}>
-            
-            
+
+
             <Card bordered={false}
                 style={{
                     width: 500,
@@ -76,7 +87,7 @@ const Login = (props) => {
                         },
                     ]}
                 >
-                    <Input prefix={<UserOutlined className="site-form-item-icon" />} value={email} onChange={(e) => { setEmail(e.target.value) }}  placeholder="Email" />
+                    <Input prefix={<UserOutlined className="site-form-item-icon" />} value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
                 </Form.Item>
 
                 <Form.Item
@@ -93,7 +104,7 @@ const Login = (props) => {
                         type="password"
                         value={password}
                         onChange={(e) => { setPassword(e.target.value) }}
-                        
+
                         placeholder="Password"
                     />
                 </Form.Item>
@@ -113,7 +124,7 @@ const Login = (props) => {
                     </Button>
                 </Form.Item>
             </Card>
-            
+
         </Form>
     );
 };

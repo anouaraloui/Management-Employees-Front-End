@@ -5,12 +5,12 @@ import { Card } from 'antd'
 import '../../Pages/Login/Form.css'
 import { resetPassword } from '../../Context/action';
 import { useUserContext } from '../../Context/context';
+import { useEffect } from 'react';
 
 const ResetPassword = () => {
     
     const [password, setPassword,confirmPassword , setConfirmPassword] = useUserContext()
     const history = useNavigate()
-
     let tokenURL = useParams()
     const Submit = async (e) => {
         e.preventDefault();
@@ -26,6 +26,13 @@ const ResetPassword = () => {
             
         }else return history('/resetconfirm')
     }
+
+    useEffect(() => {
+        const event = (e) =>{
+            e.preventDefault();
+            Submit()
+        }
+    }, [])
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };

@@ -6,6 +6,7 @@ import { Card } from 'antd'
 import '../../Pages/Login/Form.css'
 import { forgotPassword } from '../../Context/action';
 import { useUserContext } from '../../Context/context';
+import { useEffect } from 'react';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useUserContext()
@@ -15,6 +16,13 @@ const ForgotPassword = () => {
         let forgotPasswordSend = await forgotPassword({email})
         if(forgotPasswordSend) return history('/sendconfirm')  
     }
+    useEffect(() => {
+        const event = (e) =>{
+            e.preventDefault();
+            submit()
+        }
+    }, [])
+
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
     };
