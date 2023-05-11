@@ -8,7 +8,7 @@ function Home () {
         <>
             <DateNow />
             <Text />
-            <Login />
+            <Login /> 
         </>
     )
 }

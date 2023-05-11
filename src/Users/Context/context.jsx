@@ -11,7 +11,7 @@ const useUserContext = () => {
 }
 
  const UserContextProvider = ({ children }) => {
-	const [ currentUser, setCurrentUser, ] = useState(undefined);
+	const [ currentUser, setCurrentUser ] = useState(undefined);
 	const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -28,9 +28,10 @@ const useUserContext = () => {
 
 		checkLoggedIn();
 	}, []);
-
+	const value = [currentUser, setCurrentUser,email, setEmail, password, setPassword,confirmPassword, setConfirmPassword]
+	
 	return (
-		<UserContext.Provider value={[currentUser, setCurrentUser,email, setEmail, password, setPassword,confirmPassword, setConfirmPassword]}>
+		<UserContext.Provider value={value}>
             {children}
 		</UserContext.Provider>
 	);

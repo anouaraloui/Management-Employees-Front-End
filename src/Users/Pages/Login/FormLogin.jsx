@@ -23,14 +23,15 @@ const Login = (props) => {
 
 
             });
-            const token = user.data.token
-            const decoded = jwt(token)
-            if (decoded.role === "Super Admin") {
-                setTimeout(() => {
+            // const token = user.data.token
+            // const decoded = jwt(token)
+            // if (decoded.role!== "Super Admin") {
+                
+            // }
+            setTimeout(() => {
                     history('/dashboard')
-
+                        
                 }, 1000);
-            }
 
         }
     }
@@ -85,9 +86,11 @@ const Login = (props) => {
                             required: true,
                             message: 'Please input your email!',
                         },
+                        {type: 'email', message: "Please enter a valid email"},
                     ]}
+                    hasFeedback
                 >
-                    <Input prefix={<UserOutlined className="site-form-item-icon" />} value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
+                    <Input  prefix={<UserOutlined className="site-form-item-icon" />} value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
                 </Form.Item>
 
                 <Form.Item
@@ -98,8 +101,9 @@ const Login = (props) => {
                             message: 'Please input your Password!',
                         },
                     ]}
+                    hasFeedback
                 >
-                    <Input
+                    <Input.Password
                         prefix={<LockOutlined className="site-form-item-icon" />}
                         type="password"
                         value={password}

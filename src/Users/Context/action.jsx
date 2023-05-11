@@ -1,8 +1,8 @@
 
 import { notification } from 'antd';
 import { axiosInstance } from "../api";
-
-
+import jwtDecode from 'jwt-decode';
+import axios from 'axios';
 
 export const loginUser = async (loginPayload) => {
   const requestOptions = {
@@ -26,8 +26,8 @@ export const loginUser = async (loginPayload) => {
     notification.error({
       placement: 'top',
       bottom: 50,
-      duration: 1,
-      message: error.response.data.error
+      duration: 3,
+      message: error.data.error
     })
   }
 }
@@ -61,7 +61,7 @@ export  const forgotPassword = async(forgotPayload) => {
       placement: 'top',
       bottom: 50,
       duration: 1,
-      message: error.response.data.error
+      message: error.data.error
     })
   }
 
@@ -86,5 +86,64 @@ export  const resetPassword = async (forgotPayload) => {
     }
   } catch (error) {
     console.log({ error: 'Can not change the password !' });
+  }
+}
+
+export const getAll = async ()=>{ 
+  try {
+     const token = localStorage.getItem('token')
+    const decodedToken = jwtDecode(token)
+    const userId = decodedToken.userId
+    const admin = decodedToken.role
+    console.log('admin :', admin);
+    if(admin === "Super Admin")
+    console.log('yep');
+    const response= axiosInstance.get('/users', 
+ )
+ return response
+  // let data = response
+  // console.log(data);
+  // if(data){
+  //   let usersData = JSON.stringify(data)
+  //   console.log('users dara :', usersData);
+  //   return usersData
+  // }
+  } catch (error) {
+    console.log({ error: 'Can notdisplay !' });
+  }
+  
+  
+}
+
+export const setAuthToken = token => {
+  if (token) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
+  }
+  else
+      delete axios.defaults.headers.common["Authorization"];
+}
+
+export const addUser = async (payload) => {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    data: payload,
+  };
+  try {
+    let response = await axiosInstance('/users', requestOptions)
+    let data = response
+    if (data) {
+      
+      return data
+    }
+    return data;
+  } catch (error) {
+    notification.error({
+      placement: 'top',
+      bottom: 50,
+      duration: 1,
+      message: error.data.error
+    })
   }
 }

@@ -13,11 +13,11 @@ const ForgotPassword = () => {
     const history = useNavigate()
     async function submit(e) {
         e.preventDefault();
-        let forgotPasswordSend = await forgotPassword({email})
-        if(forgotPasswordSend) return history('/sendconfirm')  
+        let forgotPasswordSend = await forgotPassword({ email })
+        if (forgotPasswordSend) return history('/sendconfirm')
     }
     useEffect(() => {
-        const event = (e) =>{
+        const event = (e) => {
             e.preventDefault();
             submit()
         }
@@ -56,14 +56,16 @@ const ForgotPassword = () => {
 
 
             <Form.Item
-
                 name="email"
                 rules={[
                     {
                         required: true,
                         message: 'Please input your email!',
                     },
-                ]}>
+                    { type: 'email', message: "Please enter a valid email" },
+                ]}
+                hasFeedback
+            >
 
                 <Input prefix={<UserOutlined className="site-form-item-icon" />} value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
             </Form.Item>

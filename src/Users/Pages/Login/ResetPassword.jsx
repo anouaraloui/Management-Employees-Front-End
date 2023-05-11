@@ -15,16 +15,16 @@ const ResetPassword = () => {
     const Submit = async (e) => {
         e.preventDefault();
         let token = tokenURL.token
-        await resetPassword({password, confirmPassword,token})
-        if(password != confirmPassword) {
-            notification.error({
-                placement: 'top',
-                bottom: 50,
-                duration: 2,
-                message: `Passwords must match`
-              });
-            
-        }else return history('/resetconfirm')
+       
+        if(password === confirmPassword) {
+            await resetPassword({password, confirmPassword,token})
+            return history('/resetconfirm')  
+        }else notification.error({
+            placement: 'top',
+            bottom: 50,
+            duration: 2,
+            message: `The two passwords that you enter does not match.`
+          });
     }
 
     useEffect(() => {
@@ -61,16 +61,18 @@ const ResetPassword = () => {
 
 
 
-           <Form.Item
+            <Form.Item
                     name="password"
                     rules={[
                         {
                             required: true,
                             message: 'Please input your Password!',
                         },
+                        {min: 4},
                     ]}
+                    hasFeedback
                 >
-                    <Input
+                    <Input.Password
                         prefix={<LockOutlined className="site-form-item-icon" />}
                         type="password"
                         value={password}
@@ -81,14 +83,24 @@ const ResetPassword = () => {
                 </Form.Item>
                 <Form.Item
                     name="confirm password"
+                    dependencies={['password']}
                     rules={[
                         {
                             required: true,
                             message: 'Confirm your Password!',
                         },
+                        ({getFieldValue}) => ({
+                            validator(_,value) {
+                                if(!value || getFieldValue('password') === value){
+                                    return Promise.resolve()
+                                }
+                                return Promise.reject('The two passwords that you enter does not match.');
+                            },
+                        }),
                     ]}
+                    hasFeedback
                 >
-                    <Input
+                    <Input.Password
                         prefix={<LockOutlined className="site-form-item-icon" />}
                         type="password"
                         value={confirmPassword}
@@ -96,7 +108,6 @@ const ResetPassword = () => {
                         placeholder="Confirm password"
                     />
                 </Form.Item>
-
 
             <Form.Item>
                 <Button type="primary" htmlType="submit" className=" login-form-forgot" onClick={Submit}>
