@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import routes from './Users/Config/routes';
-import NotFound from './Users/Pages/NotFound/index';
+import routes from './Config/routes';
+import NotFound from './Pages/NotFound/index';
 
 function App() {
   return (

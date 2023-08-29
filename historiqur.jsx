@@ -1288,3 +1288,122 @@
        
     
   
+// Pages ==> Profile
+// const handeDelete = async (record) => {
+  //   const id = record._id
+  //   axiosInstance.delete(`users/${id}`)
+  //     .then((response) => {
+  //       message.success(response.data.message)
+  //       return loadData()
+  //     }).catch((error) => {
+  //       message.error(error.data.message)
+  //     });
+
+  // };
+
+  // const onToggle = async (record) => {
+  //   const id = record._id
+  //   axiosInstance.patch(`/users/toggle-enable/${id}`)
+  //     .then((response) => {
+  //       message.success(response.data.message)
+  //       return loadData()
+  //     }).catch((error) => {
+  //       message.error(error.data.message)
+  //     });
+
+  // };
+
+  // const onEditUser = async (record) => {
+  //   setEditingUser(record)
+  //   setIsEditing(true)
+  // };
+  // const onOkEditing = async () => {
+  //   const id = editingUser._id;
+  //   await axiosInstance.put(`users/${id}`, { ...editingUser, profile: file || editingUser?.profile || '' })
+  //   .then((response) => {
+  //     message.success(response.data.message)
+  //     setFile('');
+  //     return loadData();
+  //   }).catch((error) => {
+  //     message.error(error.data.message)
+  //   });
+  // };
+  // const resetEditing = () => {
+  //   setIsEditing(false);
+  //   setEditingUser(null);
+  // };
+   {/* <Modal
+          style={{
+            maxWidth: 400,
+          }}
+          title="Edit User"
+          open={isEditing}
+          okText="Save"
+          onCancel={() => {
+            resetEditing();
+            setEditingUser([])
+          }}
+          onOk={() => {
+            onOkEditing();
+            resetEditing();
+            setEditingUser([])
+          }}
+        >
+          <UpdateUser
+            profile={editingUser?.profile}
+            firstName={editingUser?.firstName}
+            lastName={editingUser?.lastName}
+            email={editingUser?.email}
+            role={editingUser?.role}
+            building={editingUser?.building}
+            change={onEditUser}
+          />
+        </Modal> */} 
+
+        // Pages ==> UserProfile
+        
+  // const onEditUser = async (record) => {
+  //   setEditingUser(record);
+  //   setIsEditing(true);
+  // };
+
+  // const onOkEditing = async () => {
+  //   const id = editingUser._id;
+  //   await axiosInstance.put(`users/${id}`, { ...editingUser, profile: file || editingUser?.profile || '' })
+  //     .then((response) => {
+  //       message.success(response.data.message)
+  //       loadData();
+  //       setFile('');
+  //     }).catch((error) => {
+  //       message.error(error.data.message)
+  //     });
+  // };
+  // const resetEditing = () => {
+  //   setIsEditing(false);
+  //   setEditingUser(null);
+  // };
+  {/* <Modal
+  style={{
+    maxWidth: 400,
+  }}
+  title="Edit User"
+  open={isEditing}
+  okText="Save"
+  onCancel={() => {
+    resetEditing();
+    setEditingUser([])
+  }}
+  onOk={() => {
+    onOkEditing();
+    resetEditing();
+    setEditingUser([])
+  }}
+>
+  <FormUpdateUser
+    profile={editingUser?.profile}
+    firstName={editingUser?.firstName}
+    lastName={editingUser?.lastName}
+    email={editingUser?.email}
+    change={onEditUser}
+  />
+</Modal> */}

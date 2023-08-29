@@ -1,0 +1,29 @@
+/* .Menu-Dashboard{
+    background-color: rgb(66, 52, 52) !important;
+    overflow: 'auto';
+        height: '100vh';
+        position: 'fixed';
+        left: 0;
+        top: 10 ;
+        bottom: 0;
+        width: 20  ;
+
+} */
+
+
+/* .Menu-Dashboard {
+        overflow: auto;
+        height: '100vh' !important;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+} */
+
+
+
+/* @media (min-width: 500px) {
+    .siderMenu {
+    color: brown !important;
+    }
+} */
