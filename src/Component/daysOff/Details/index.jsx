@@ -1,4 +1,5 @@
-import { Form, Select, Input, Avatar } from 'antd';
+import { Form, Input} from 'antd';
+
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -17,6 +18,7 @@ const formItemLayout = {
     },
   },
 };
+
 function Details({  sick,daysOff,firstName, lastName, email, role, building,balanceDays }) {
   const [form] = Form.useForm();
   return (
@@ -62,10 +64,8 @@ function Details({  sick,daysOff,firstName, lastName, email, role, building,bala
             <Input 
               value={sick}
             />
-          </Form.Item>
-          
-        </Form>
-       
+          </Form.Item>          
+        </Form>       
     </>
   );
 }

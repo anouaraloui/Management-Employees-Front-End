@@ -1,7 +1,7 @@
 import { Typography } from 'antd';
 const { Title } = Typography;
-const date = new Date().toLocaleDateString()
-const time = new Date().toLocaleTimeString()
+const date = new Date().toLocaleDateString();
+const time = new Date().toLocaleTimeString();
 const CurrentDate = () => {
     return (
         <>

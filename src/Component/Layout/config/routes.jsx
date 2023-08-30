@@ -1,4 +1,3 @@
-
 import NotFound from '../../../Pages/NotFound';
 import Profile from '../../../Pages/Profile/AllUsers/Profile';
 import UserProfile from '../../../Pages/Profile/UserProfile/UserProfile';
@@ -7,7 +6,6 @@ import AddDaysOff from '../../daysOff/AddDayOff/index';
 import UserDaysOff from '../../../Pages/DaysOff/UserRequest/index'
 import AllDaysOff from '../../../Pages/DaysOff/AllRequest/index'
 import Dashboard from '../../Dashboard';
-
 
 export const routesAdmin =[
   {
@@ -44,13 +42,10 @@ export const routesAdmin =[
       path: '/dayoffUser/:id' ,
       element:  UserDaysOff ,
       routeKey: 'dayoff'
-    },
-    
-    
-  ]
+    },  
+];
   
- export const routesUser =[
-    
+export const routesUser =[    
     {
      path: '/users/profile/:id' ,
      element:  UserProfile ,
@@ -75,7 +70,5 @@ export const routesAdmin =[
       path: '/listDays' ,
       element:  AllDaysOff ,
       routeKey: 'alldaysoff'
-    },
-   
- ]
- 
+    },   
+];

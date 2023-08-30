@@ -1,7 +1,6 @@
 import React from 'react'
 import './index.css'
 import StatsData from './Cards/Card'
-import StatisticsGlobal from './Cards/Card/Statistics'
 const Dashboard = () => {
   return (
     <div className='MainDash'>
@@ -10,4 +9,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Dashboard;

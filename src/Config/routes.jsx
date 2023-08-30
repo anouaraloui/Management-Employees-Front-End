@@ -36,6 +36,6 @@ const routes = [
     routeKey: 'emailnotification'
   }
 
-]
+];
 
 export default routes;

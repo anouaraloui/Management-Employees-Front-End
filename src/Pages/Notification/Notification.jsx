@@ -19,21 +19,17 @@ const Notification = () => {
           <Button type="primary" htmlType="submit" onClick={(() => { history('/') })} >
             {resetconfirm ? "Login" : "Home"}
           </Button>
-
         ]} />
-      setNotification(content)
+      setNotification(content);
     }
-    getNotif()
+    getNotif();
 
-  }, [])
+  }, []);
 
   return (
     <>
       {notification}
     </>
-
   )
-
 }
-
 export default Notification;

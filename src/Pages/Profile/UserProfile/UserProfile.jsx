@@ -37,15 +37,12 @@ function UserProfile() {
 
   return (
     <>
-    <Form>
       <Data
         loadData={loadData}
         pagination={false}
         modifiedData={modifiedData}
-        loading={loading}
+        loading={loading}        
       />
-    </Form>
-      
     </>
   );
 }

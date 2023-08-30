@@ -11,9 +11,9 @@ const useUserContext = () => {
 
  const UserContextProvider = ({ children }) => {
 	const [ currentUser, setCurrentUser ] = useState([]);
-	const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
+	const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 	useEffect(() => {
 		const checkLoggedIn = async () => {
 			let currentUser = isAuthenticated();
@@ -21,7 +21,6 @@ const useUserContext = () => {
 				localStorage.setItem('currentUser', '');
 				currentUser = '';
 			}
-
 			setCurrentUser(currentUser);
 		};
 
@@ -36,9 +35,5 @@ const useUserContext = () => {
 	);
 };
 
-
-
-
-
 export {useUserContext};
-export default UserContextProvider
+export default UserContextProvider;

@@ -1,5 +1,5 @@
 import { UserOutlined } from '@ant-design/icons';
-import { Form, Space, Table, Avatar } from 'antd';
+import { Space, Table, Avatar } from 'antd';
 import GetColumnSearchProps from '../../SearchProps/SearchProps';
 import DeleteUser from '../../User/DeleteUser';
 import Toggle from '../../User/Toggle';
@@ -244,8 +244,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
           dataIndex: 'lastName',
           align: "center",
         },
-      ],
-
+      ]
     },
     {
       title: 'Email',
@@ -345,6 +344,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       bordered
       loading={loading}
       scroll={scrollData}
+      size="middle"
     />
   )
 }

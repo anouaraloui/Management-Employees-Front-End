@@ -5,16 +5,15 @@ import jwtDecode from 'jwt-decode';
 import Decision from '../../daysOff/Decision';
 import DeleteOne from '../../daysOff/DeleteOne';
 import EditRequest from '../../daysOff/Update';
-const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loading, onUpdate, onDetails }) => {
+
+const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) => {
   const token = localStorage.getItem('token')
   const decodedToken = jwtDecode(token);
   const userRole = decodedToken.role;
   const role = userRole;
-  console.log('role :', role);
-  const roles = ['Super Admin', 'Director', 'Team Manager']
-  const urlDoc = window.location.pathname
-  console.log('url :', urlDoc);
-  const listDecision = (urlDoc === '/dashboard/listDays')
+  const roles = ['Super Admin', 'Director', 'Team Manager'];
+  const urlDoc = window.location.pathname;
+  const listDecision = (urlDoc === '/dashboard/listDays');
   const columns = [
     {
       title: 'Date',
@@ -66,32 +65,32 @@ const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loa
           title: 'Status',
           align: "center",
           render: (status) => {
-            return <p>{ status.decisionManager.status 
-              
+            return <p>{status.decisionManager.status
+
               ? <CheckCircleOutlined
-              style={{
-                color: 'green',
-                fontSize: 30,
-              }}
-            />
+                style={{
+                  color: 'green',
+                  fontSize: 30,
+                }}
+              />
               :
               <CloseCircleOutlined
                 style={{
                   color: 'red',
                   fontSize: 30,
                 }}
-              /> 
-            ? null
-            : null
-              }
-              </p>
+              />
+                ? null
+                : null
+            }
+            </p>
           },
           width: 75
         },
         {
           title: 'Justification',
           align: "center",
-          width : 200,
+          width: 200,
           render: (justification) => justification.decisionManager.justification
         },
       ],
@@ -103,13 +102,13 @@ const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loa
           title: 'Status',
           align: "center",
           render: (status) => {
-            return <p>{status.decisionDirector.status 
+            return <p>{status.decisionDirector.status
               ? <CheckCircleOutlined
-              style={{
-                color: 'green',
-                fontSize: 30,
-              }}
-            />
+                style={{
+                  color: 'green',
+                  fontSize: 30,
+                }}
+              />
               :
               <CloseCircleOutlined
                 style={{
@@ -117,9 +116,9 @@ const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loa
                   fontSize: 30,
                 }}
               />
-              ? null
-            : null
-              }</p>
+                ? null
+                : null
+            }</p>
           },
           width: 75
 
@@ -127,12 +126,11 @@ const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loa
         {
           title: 'Justification',
           align: "center",
-          width : 200,
+          width: 200,
           render: (justification) => justification.decisionDirector.justification
         },
       ],
-    }
-    ,
+    },
     {
       title: 'Status Request',
       dataIndex: 'statusReq',
@@ -151,9 +149,9 @@ const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loa
               fontSize: 30,
             }}
           />
-          ? null
-          : null
-          }</p>
+            ? null
+            : null
+        }</p>
       },
       width: 75
 
@@ -166,12 +164,6 @@ const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loa
         if (roles.includes(role) && listDecision && modifiedData.length >= 1) {
           console.log("role", role);
           return <Space>
-            {/* <Button onClick={() => {
-              onEdit(record);
-            }} style={{ color: "green" }}>Decision
-              <EditOutlined /> 
-            </Button> */}
-
             <Decision
               loadData={loadData}
               record={record} />
@@ -180,15 +172,8 @@ const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loa
             }} >Details
               <InfoCircleOutlined />
             </Button>
-
           </Space>
-
         } else return <Space>
-          {/* <Button onClick={() => {
-          onUpdate(record);
-        }} style={{ color: "green" }}>Edit
-          <EditOutlined />
-        </Button> */}
           <EditRequest
             record={record}
             loadData={loadData}
@@ -197,23 +182,16 @@ const DataDays = ({ scrollData,loadData, onEdit, modifiedData, totalDaysOff, loa
             record={record}
             loadData={loadData}
           />
-          {/* <Button onClick={() => {
-          onUpdate(record);
-        }} style={{ color: "red" }}>Delete
-          <DeleteOutlined />
-        </Button> */}
         </Space>
       },
       width: 170,
       fixed: 'right'
-
     },
   ];
 
   return (
     <>
       <Table
-        title={() => <span> Total Days Off : {totalDaysOff}</span>}
         columns={columns}
         dataSource={modifiedData}
         bordered

@@ -3,15 +3,15 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../../Context/action';
 
 const NotFound = () => {
-  const history = useNavigate()
+  const history = useNavigate();
   const handleBack = () => {
     if (logout()) {
-      message.success('Back to home page')
+      message.success('Back to home page');
       setTimeout(() => {
-        history('/')
+        history('/');
       }, 1000);
-    }
-  }
+    };
+  };
 
   return (
     <Result
@@ -22,6 +22,5 @@ const NotFound = () => {
     />
   )
 }
-
 
 export default NotFound;

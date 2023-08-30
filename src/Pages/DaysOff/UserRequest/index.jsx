@@ -5,30 +5,28 @@ import { useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 import AddDaysOff from '../../../Component/daysOff/AddDayOff/index';
 import DataDays from '../../../Component/Data/DaysOff/index';
-import DeleteAll from '../../../Component/daysOff/DeleteAll/index'
+import DeleteAll from '../../../Component/daysOff/DeleteAll/index';
 const UserDaysOff = () => {
-  const [request, setRequest] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [totalDaysOff, setTotalDaysOff] = useState(null)
-  const token = localStorage.getItem('token')
-  const decodedToken = jwtDecode(token)
-  const userId = decodedToken.userId
-  const id = userId
-  console.log('id : ', id);
+  const [request, setRequest] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [totalDaysOff, setTotalDaysOff] = useState(null);
+  const token = localStorage.getItem('token');
+  const decodedToken = jwtDecode(token);
+  const userId = decodedToken.userId;
+  const id = userId;
   useEffect(() => {
-    loadData()
+    loadData();
   }, [])
 
   const loadData = async () => {
-    setLoading(true)
+    setLoading(true);
     await axiosInstance.get(`/daysOff/${id}`)
       .then((response) => {
-        console.log('response :', response);
-        setRequest(response.data)
-        setLoading(false)
+        setRequest(response.data);
+        setLoading(false);
         setTotalDaysOff(response.data.length)
       })
-  };
+    };
 
   const modifiedData = request.map((item) => ({
     ...item,
@@ -41,7 +39,8 @@ const UserDaysOff = () => {
       <Space.Compact
         size='large'
         style={{
-          float: 'right'
+          float: 'right',
+          marginBottom: 20
         }}>
         {modifiedData.length >= 1 && <DeleteAll loadData={loadData} />}
         <AddDaysOff loadData={loadData} />

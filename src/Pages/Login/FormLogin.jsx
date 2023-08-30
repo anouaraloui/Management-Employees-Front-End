@@ -9,46 +9,38 @@ import jwt from 'jwt-decode'
 
 
 const Login = (props) => {
-    const [email, setEmail, password, setPassword] = useUserContext()
-    const history = useNavigate()
+    const [email, setEmail, password, setPassword] = useUserContext();
+    const history = useNavigate();
     const handleLogin = async (e) => {
         e.preventDefault();
-        let user = await loginUser({ email, password })
+        let user = await loginUser({ email, password });
         if (user) {
             notification.success({
                 placement: 'top',
                 bottom: 50,
                 duration: 1,
                 message: `User Login`
-
-
             });
-            const token = user.data.token
-            const decoded = jwt(token)
-            const id = decoded.userId
-            const role = decoded.role
-            
+            const token = user.data.token;
+            const decoded = jwt(token);
+            const id = decoded.userId;
+            const role = decoded.role;
             setTimeout(() => {
-                { role === "Super Admin" 
-                ? history(`/dashboard`) 
-                : history(`/dashboard/users/profile/${id}`)
+                {
+                    role === "Super Admin"
+                    ? history(`/dashboard`)
+                    : history(`/dashboard/users/profile/${id}`)
                 }
-            
-        }, 1000)
-            
+            }, 1000);
+        };
+    };
 
-        }
-    }
     useEffect(() => {
         const event = async (e) => {
             e.preventDefault();
-            handleLogin()
-           
-        }
-    }, [])
-
-
-
+            handleLogin();
+        };
+    }, []);
 
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
@@ -72,29 +64,24 @@ const Login = (props) => {
                 maxWidth: 500,
                 top: '10rem',
                 left: '35rem'
-
             }}>
-
-
             <Card bordered={false}
                 style={{
                     width: 500,
                     background: 'rgb(240, 242, 245)'
                 }}>
-
                 <Form.Item
-
                     name="email"
                     rules={[
                         {
                             required: true,
                             message: 'Please input your email!',
                         },
-                        {type: 'email', message: "Please enter a valid email"},
+                        { type: 'email', message: "Please enter a valid email" },
                     ]}
                     hasFeedback
                 >
-                    <Input  prefix={<UserOutlined className="site-form-item-icon" />} value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
+                    <Input prefix={<UserOutlined className="site-form-item-icon" />} value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="Email" />
                 </Form.Item>
 
                 <Form.Item
@@ -123,16 +110,13 @@ const Login = (props) => {
                     <Link to="/forgotPassword" className='login-form-forgot'>
                         Forgot Password
                     </Link>
-
                 </Form.Item>
-
                 <Form.Item>
                     <Button type="primary" htmlType="submit" className="login-form-button" onClick={handleLogin} >
                         Log in
                     </Button>
                 </Form.Item>
             </Card>
-
         </Form>
     );
 };

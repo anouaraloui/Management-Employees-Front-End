@@ -1,20 +1,17 @@
 import React from 'react'
-import { DeleteOutlined } from '@ant-design/icons';
 import { Button, Popconfirm, message } from 'antd';
 import { axiosInstance } from '../../../api';
 
 const Toggle = ({loadData, record}) => {
-
     const onToggle = async () => {
-        const id = record._id
+        const id = record._id;
         axiosInstance.patch(`/users/toggle-enable/${id}`)
           .then((response) => {
-            message.success(response.data.message)
-            return loadData()
+            message.success(response.data.message);
+            return loadData();
           }).catch((error) => {
-            message.error(error.data.message)
-          });
-    
+            message.error(error.data.message);
+          });    
       };
     return (
         <>
@@ -36,10 +33,8 @@ const Toggle = ({loadData, record}) => {
                   </span>
                 }
               </Button>
-            </Popconfirm>
-       
+            </Popconfirm>       
         </>
     )
 }
-
 export default Toggle;

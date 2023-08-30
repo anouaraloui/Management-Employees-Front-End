@@ -1,26 +1,15 @@
 import { Card, Col, DatePicker, Form, Input, Row, Select } from 'antd'
 import React from 'react'
-import { useState } from 'react';
 import dayjs from 'dayjs';
+
 const FormEdit = ({ change, type, justificationSick, startDay, endDay }) => {
-    const [form] = Form.useForm()
+    const [form] = Form.useForm();
     const { RangePicker } = DatePicker;
     const dateFormat = 'YYYY/MM/DD';
-    // const [startDay, setStarDay] = useState('')
-    // const [endDay, setEndDay] = useState('')
     const onChange = (value, dateString) => {
-        console.log('Selected Time: ', value);
-        console.log('Formatted Selected Time: ', dateString);
-        // const endDay = dateString[1]
-        // const startDay = dateString[0]
-        console.log('end dar', endDay);
         change((pre) => {
-            return { ...pre, endDay: dateString[1], startDay: dateString[0] }
+            return { ...pre, endDay: dateString[1], startDay: dateString[0] };
         })
-        // setEndDay(endDay)
-
-        console.log('start day:', startDay);
-        // setStarDay(startDay)
     };
     const onFinish = async (values) => {
         console.log('values :', values);
@@ -47,7 +36,6 @@ const FormEdit = ({ change, type, justificationSick, startDay, endDay }) => {
                                     message: 'Please input the date !',
                                 },
                             ]} >
-                            {/* <DatePicker defaultValue={startDay}  /> */}
                             <RangePicker
                                 format="YYYY-MM-DD"
                                 defaultValue={[dayjs(startDay, dateFormat), dayjs(endDay, dateFormat)]}
@@ -58,7 +46,6 @@ const FormEdit = ({ change, type, justificationSick, startDay, endDay }) => {
                     </Col>
                     <Col span={8} >
                         <Form.Item
-
                             rules={[
                                 {
                                     required: true,
@@ -68,7 +55,6 @@ const FormEdit = ({ change, type, justificationSick, startDay, endDay }) => {
                             <Select
                                 value={type}
                                 placeholder="Type" style={{ width: '100%' }}
-
                                 options={[
                                     {
                                         label: "Paid",
@@ -114,4 +100,4 @@ const FormEdit = ({ change, type, justificationSick, startDay, endDay }) => {
     )
 }
 
-export default FormEdit
+export default FormEdit;

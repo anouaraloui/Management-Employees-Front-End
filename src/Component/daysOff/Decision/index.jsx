@@ -1,45 +1,41 @@
-import React from 'react'
-import { Button, Card, Form, Input, Modal, Popconfirm, Select, message } from 'antd';
+import React, { useState } from 'react'
+import { Button, Card, Form, Modal, Select, message } from 'antd';
 import { axiosInstance } from '../../../api';
-import { useState } from 'react';
 import TextArea from 'antd/es/input/TextArea';
 import jwtDecode from 'jwt-decode';
 const Decision = ({ loadData, record }) => {
-    const [openDecision, setOpenDecision] = useState(false)
-    const [form] = Form.useForm()
-    const [isDisable, setDisable] = useState(true)
+    const [openDecision, setOpenDecision] = useState(false);
+    const [form] = Form.useForm();
+    const [isDisable, setDisable] = useState(true);
     const token = localStorage.getItem('token');
     const decodedToken = jwtDecode(token);
-    const userId = decodedToken.userId
-    const role = decodedToken.role
+    const userId = decodedToken.userId;
+    const role = decodedToken.role;
 
     const onFinish = (values) => {
         form.validateFields()
             .then(async (values) => {
                 console.log('decision ', values);
-                const id = record._id
+                const id = record._id;
                 await axiosInstance.patch(`/daysOff/decision/${id}`, { ...values, userId })
                     .then((response) => {
-                        console.log("response :", response);
-                        message.success(response.data.message)
+                        message.success(response.data.message);
                         form.resetFields();
                         setTimeout(() => {
-                            setOpenDecision(false)
+                            setOpenDecision(false);
                         }, 1000)
-                        return loadData()
+                        return loadData();
                     }).catch((error) => {
-                        console.log('error :', error);
-                        message.error(error.data.error)
+                        message.error(error.data.error);
                     });
             })
-
     }
 
     const openModal = () => {
-        setOpenDecision(true)
+        setOpenDecision(true);
     }
     const resetDecision = () => {
-        setOpenDecision(false)
+        setOpenDecision(false);
     }
     return (
         <>
@@ -97,11 +93,11 @@ const Decision = ({ loadData, record }) => {
                                 ]}
                             />
                         </Form.Item>
-                        {!isDisable ? 
-                        <Form.Item name={"justification"} >
-                            <TextArea rows={4} placeholder='Your Justification !' />
-                        </Form.Item> 
-                        : null
+                        {!isDisable ?
+                            <Form.Item name={"justification"} >
+                                <TextArea rows={4} placeholder='Your Justification !' />
+                            </Form.Item>
+                            : null
                         }
                     </Form>
                 </Card>

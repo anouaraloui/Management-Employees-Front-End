@@ -13,12 +13,6 @@ const ResultNotification = (props) => {
         extra={props.extra}
       />
     </>
-
   )
-
 }
-
-
 export default ResultNotification;
-
-

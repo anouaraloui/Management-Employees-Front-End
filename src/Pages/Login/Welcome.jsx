@@ -26,8 +26,7 @@ const Welcome = () => {
             left: 60,
             fontWeight: 600
         }}>Please enter your details</Title>
-        </>
-        
+        </>        
     )
 }
 

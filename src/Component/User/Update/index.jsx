@@ -1,4 +1,4 @@
-import { Form, Select, Input, message, Modal, Button } from 'antd';
+import { message, Modal, Button } from 'antd';
 import FormUpdateUser from './FormUpdateUser';
 import { useState } from 'react';
 import { axiosInstance } from '../../../api';
@@ -10,25 +10,25 @@ function UpdateUser({ record, loadData }) {
   const [file, setFile] = useState();
 
   const onEditUser = async () => {
-    setEditingUser(record)
-    setIsEditing(true)
+    setEditingUser(record);
+    setIsEditing(true);
   };
   const onOkEditing = async () => {
-    const id = editingUser._id;
+    const id = editingUser._id;;
     await axiosInstance.put(`users/${id}`, { ...editingUser, profile: file || editingUser?.profile || '' })
       .then((response) => {
-        message.success(response.data.message)
+        message.success(response.data.message);
         setFile('');
         return loadData();
       }).catch((error) => {
-        message.error(error.data.message)
+        message.error(error.data.message);
       });
   };
   const resetEditing = () => {
     setIsEditing(false);
     setEditingUser(null);
   };
-  const getNewData = (record) => { setEditingUser(record) }
+  const getNewData = (record) => { setEditingUser(record) };
   return (
     <>
       <Button onClick={() => {

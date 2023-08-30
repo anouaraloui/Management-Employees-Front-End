@@ -5,15 +5,12 @@ import { axiosInstance } from '../../../api';
 
 const DeleteAll = ({ loadData }) => {
   const handeDelete = async () => {
-    console.log('delete all');
     axiosInstance.delete('/daysOff')
       .then((response) => {
-        console.log('response :', response);
-        message.success(response.data.message)
-        return loadData()
+        message.success(response.data.message);
+        return loadData();
       }).catch((err) => {
-        console.log("error : ", err);
-        message.error(err.data.message)
+        message.error(err.data.message);
       })
   }
   return (
@@ -36,7 +33,6 @@ const DeleteAll = ({ loadData }) => {
           <DeleteOutlined />
         </Button>
       </Popconfirm>
-
     </>
   )
 }

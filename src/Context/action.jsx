@@ -100,14 +100,7 @@ export const getAll = async ()=>{
     console.log('yep');
     const response= axiosInstance.get('/users', 
  )
- return response
-  // let data = response
-  // console.log(data);
-  // if(data){
-  //   let usersData = JSON.stringify(data)
-  //   console.log('users dara :', usersData);
-  //   return usersData
-  // }
+ return response;
   } catch (error) {
     console.log({ error: 'Can notdisplay !' });
   }

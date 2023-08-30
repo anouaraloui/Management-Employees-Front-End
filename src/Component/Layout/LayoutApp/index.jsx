@@ -1,8 +1,7 @@
 import { Layout, Menu, theme } from 'antd';
 import MenuDashboard from '../sideBar/index';
 import ContentDashboard from '../content/index';
-import './layout.css'
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 const LayoutApp = () => {
   const {
@@ -10,27 +9,6 @@ const LayoutApp = () => {
   } = theme.useToken();
   return (
     <>
-      {/* <Layout hasSider className='site-layout' 
-    style={{
-      background: colorBgContainer
-    }}>
-      <Sider className='siderMenu'>
-      </Sider>
-          
-      <Layout 
-      className='site-layout'
-        style={{
-          position :'relative',
-          top: 20,
-          bottom: 0
-          
-        }}>
-        <Content>
-            <ContentDashboard />          
-        </Content>
-      </Layout>
-    </Layout> */}
-
       <Layout >
         <Sider
           breakpoint="lg"
@@ -40,8 +18,7 @@ const LayoutApp = () => {
           }}
           onCollapse={(collapsed, type) => {
             console.log(collapsed, type);
-          }}
-          
+          }}          
           >
           <Menu>
             <MenuDashboard />
@@ -49,31 +26,24 @@ const LayoutApp = () => {
         </Sider>
 
         <Layout>
-          <Header style={{
-            padding: 0,
-            background: colorBgContainer,
-          }} />
+
           <Content style={{
-            margin: '24px 16px 0',
+            margin: '23px 16px 0',
+            minWidth: '1000px'
           }}>
             <div
               style={{
                 padding: 24,
-                minHeight: '100vh',
-                minWidth: '360px',
+                minHeight: '96.9vh',
                 background: colorBgContainer,
               }}
             >
               <ContentDashboard />
             </div>
-
           </Content>
         </Layout>
       </Layout>
-
     </>
-
   )
-
 };
 export default LayoutApp;

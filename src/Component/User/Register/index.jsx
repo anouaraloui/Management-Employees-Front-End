@@ -1,4 +1,4 @@
-import { Button, Form, Input, Select, Upload, notification, message, Card, Row, Col } from 'antd';
+import { Button, Form, Input, Select, Card, Row, Col } from 'antd';
 import avatarDefault from '../../../assets/avatar.jpg'
 import { optionBuilding, optionsRole } from '../OptionSelect/optionsSelect';
 import convertToBase64 from '../../ConvertImage/index';
@@ -47,10 +47,8 @@ const FormRegister = ({ onFinish, setFile, file, form }) => {
     );
 
     const onUpload = async (e) => {
-        console.log('e', e.target.files[0]);
         const base64 = await convertToBase64(e.target.files[0]);
         setFile(base64);
-        console.log('base :', base64);
     }
 
     return (
@@ -190,13 +188,6 @@ const FormRegister = ({ onFinish, setFile, file, form }) => {
                             <Form.Item
                                 name='profile'
                                 label='Avatar'
-                                rules={[
-                                    {
-                                        required: true,
-                                        message: 'Please upload your picture!',
-
-                                    }
-                                ]}
                             >
                                 <div >
                                     <label htmlFor="profile">

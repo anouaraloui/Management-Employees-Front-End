@@ -1,61 +1,64 @@
-import { Form, Space, Button, DatePicker, Select, Input,} from 'antd';
+import { Form, Space, Button, DatePicker, Select, Input, Typography, } from 'antd';
 
-function FormFilter({ onFilter, clearForm, setCreatedAtAfter, setCreatedAtBefore, setLimit, setSortBy}) {
+function FormFilter({ onFilter, clearForm, setCreatedAtAfter, setCreatedAtBefore, setLimit, setSortBy }) {
 
   const { RangePicker } = DatePicker;
-  const [form] = Form.useForm();  
-  
+  const [form] = Form.useForm();
+
   const onChange = (value, dateString) => {
-    console.log('Selected Time: ', value);
-    console.log('Formatted Selected Time: ', dateString);
-    const createdBefore = dateString[1]
-    setCreatedAtBefore(createdBefore)
-    const createdAfter = dateString[0]
-    setCreatedAtAfter(createdAfter)
-  };  
+    const createdBefore = dateString[1];
+    setCreatedAtBefore(createdBefore);
+    const createdAfter = dateString[0];
+    setCreatedAtAfter(createdAfter);
+  };
 
   return (
     <>
-    {/* Form of Filter Data */}
-      <Space.Compact  size='large' style={{ marginLeft: 18 }} direction='horizontal'>
-      <Form layout='inline' form={form} >
-      <Form.Item>
-        <span>Filter Data:</span>
-      </Form.Item>
-      <Form.Item name={"SortBy"}>
-        <Select onSelect={(e) => setSortBy(e)} placeholder="Field to sort by" style={{ width: '100%' }}
-          options={[
-            {
-              label: "Creation Date",
-              value: "createdAt"
-            }
-          ]}
-        />
-      </Form.Item>
-      <Form.Item name={"limit"}>
-        <Input onChange={(e) => setLimit(e.target.value)} placeholder='Limit' style={{ width: 65 }} />
-
-      </Form.Item>
-      <Form.Item name={"dateOfSort"}>
-        <RangePicker
-          format="YYYY-MM-DD"
-          onChange={onChange}
-          style={{ width: '100%' }}
-        />
-      </Form.Item>
-      <Form.Item>
-        <Button onClick={() => onFilter()} >
-          Filter
-        </Button>
-      </Form.Item>
-      <Form.Item>
-        <Button onClick={()=> {
-            form.resetFields();
-            clearForm()}}  >Cancel</Button>
-      </Form.Item>
-    </Form>  
+      <Space.Compact size='large' style={{ margin: '0 17px' }} direction='horizontal'>
+        <Form layout='inline' form={form} >
+          <Form.Item>
+            <Typography.Title
+              level={5}
+              style={{
+                margin: 0,
+              }}
+            >
+              Filter Data:
+            </Typography.Title>
+          </Form.Item>
+          <Form.Item name={"SortBy"}>
+            <Select onSelect={(e) => setSortBy(e)} placeholder="Field to sort by" style={{ width: '100%' }}
+              options={[
+                {
+                  label: "Creation Date",
+                  value: "createdAt"
+                }
+              ]}
+            />
+          </Form.Item>
+          <Form.Item name={"limit"}>
+            <Input onChange={(e) => setLimit(e.target.value)} placeholder='Limit' style={{ width: 65 }} />
+          </Form.Item>
+          <Form.Item name={"dateOfSort"}>
+            <RangePicker
+              format="YYYY-MM-DD"
+              onChange={onChange}
+              style={{ width: '100%' }}
+            />
+          </Form.Item>
+          <Form.Item>
+            <Button onClick={() => onFilter()} >
+              Filter
+            </Button>
+          </Form.Item>
+          <Form.Item>
+            <Button onClick={() => {
+              form.resetFields();
+              clearForm()
+            }}  >Cancel</Button>
+          </Form.Item>
+        </Form>
       </Space.Compact>
-    
     </>
   );
 }

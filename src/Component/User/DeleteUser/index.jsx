@@ -4,17 +4,15 @@ import { Button, Popconfirm, message } from 'antd';
 import { axiosInstance } from '../../../api';
 
 const DeleteUser = ({ loadData, record }) => {
-
   const handeDelete = async () => {
-    const id = record._id
+    const id = record._id;
     axiosInstance.delete(`users/${id}`)
       .then((response) => {
-        message.success(response.data.message)
-        return loadData()
+        message.success(response.data.message);
+        return loadData();
       }).catch((error) => {
-        message.error(error.data.message)
+        message.error(error.data.message);
       });
-
   };
   return (
     <>
@@ -29,9 +27,7 @@ const DeleteUser = ({ loadData, record }) => {
           <DeleteOutlined />
         </Button>
       </Popconfirm>
-
     </>
   )
 }
-
 export default DeleteUser
