@@ -3,7 +3,7 @@ import jwtDecode from 'jwt-decode';
 import { axiosInstance } from '../../../api';
 import { isAuthenticated, setAuthToken } from '../../../Context/action';
 import Data from '../../../Component/Data/User/index';
-import { Form } from 'antd';
+import { Card, Form } from 'antd';
 
 function UserProfile() {
   const [gridData, setGridData] = useState([]);
@@ -37,12 +37,19 @@ function UserProfile() {
 
   return (
     <>
-      <Data
+    <Card
+    style={{
+      borderRadius: '25px',
+    }}
+    >
+<Data
         loadData={loadData}
         pagination={false}
         modifiedData={modifiedData}
         loading={loading}        
       />
+    </Card>
+      
     </>
   );
 }

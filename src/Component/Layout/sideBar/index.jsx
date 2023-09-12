@@ -32,6 +32,7 @@ const MenuDashboard = () => {
   const userId = decodedToken.userId;
   const id = userId;
   const role = decodedToken.role;
+  console.log("role :", role);
 
   const  itemsAdmin= [
     { label: 'Dashboard ', key: "/dashboard", icon: <DashboardOutlined /> },
@@ -44,11 +45,15 @@ const MenuDashboard = () => {
   ];
   const  itemsUser= [
     { label: 'Profile', key: `/dashboard/users/profile/${id}`, icon: <UserOutlined /> },
+    { label: 'Days Off User', key: `/dashboard/dayoffUser/${id}`, icon: <CalendarOutlined /> },
+    { label: 'Sign out', key: "signout", icon: <PoweroffOutlined />, danger: true }
+  ];
+  const  itemsDirMan= [
+    { label: 'Profile', key: `/dashboard/users/profile/${id}`, icon: <UserOutlined /> },
     { label: 'All Request', key: "/dashboard/listDays", icon: <ScheduleOutlined /> },
     { label: 'Days Off User', key: `/dashboard/dayoffUser/${id}`, icon: <CalendarOutlined /> },
     { label: 'Sign out', key: "signout", icon: <PoweroffOutlined />, danger: true }
   ];
-
   return (
       <Menu
       onClick={({ key }) => {
@@ -58,11 +63,15 @@ const MenuDashboard = () => {
           history(key)
         }
       }}
-      items={ role === 'Super Admin' ? itemsAdmin : itemsUser }
+      items={ 
+        role === 'Super Admin' ? itemsAdmin 
+        : role === "Director" || role === "Team Manager" ? itemsDirMan 
+        : itemsUser }
       theme= "dark"
       mode="inline"
      style={{
-      paddingTop: 60
+      padding: '60px 0',
+      width: '200px'
      }}      
     /> 
   )

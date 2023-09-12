@@ -132,7 +132,7 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
       ],
     },
     {
-      title: 'Status Request',
+      title: 'Request Status',
       dataIndex: 'statusReq',
       align: "center",
       render: (statusReq) => {
@@ -184,7 +184,7 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
           />
         </Space>
       },
-      width: 170,
+      width: 182,
       fixed: 'right'
     },
   ];

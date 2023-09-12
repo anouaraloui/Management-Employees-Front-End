@@ -36,7 +36,7 @@ const AddUser = () => {
         <>
             <div
                 style={{
-                    marginLeft: '10%'
+                    margin: '25px 30px 0px 60px'
                 }}
             >
                 <FormRegister

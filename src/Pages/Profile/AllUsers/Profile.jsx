@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { axiosInstance } from '../../../api';
-import { Form, FloatButton, Typography } from 'antd';
+import { Form, FloatButton, Typography, Card } from 'antd';
 import FilterData from '../../../Component/User/FilterData/index';
 import Data from '../../../Component/Data/User/index';
 
@@ -33,7 +33,11 @@ function Profile() {
 
   return (
     <>
-      <FloatButton.BackTop />
+    <Card
+    style={{
+      borderRadius: '25px'
+    }}
+    >    
       <FilterData onFilterData={getDataFilter} filterUsersData={getTotalUsers}
       />
       <div>
@@ -57,11 +61,12 @@ function Profile() {
             loadData={loadData}
             scrollData={{
               x: 1700,
-              y: 430,
+              y: 348,
             }}
           />
         </div>
       </div>
+      </Card>
     </>
   );
 }

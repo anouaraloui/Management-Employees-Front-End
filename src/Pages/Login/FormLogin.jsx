@@ -11,8 +11,7 @@ import jwt from 'jwt-decode'
 const Login = (props) => {
     const [email, setEmail, password, setPassword] = useUserContext();
     const history = useNavigate();
-    const handleLogin = async (e) => {
-        e.preventDefault();
+    const onFinish = async (values) => {
         let user = await loginUser({ email, password });
         if (user) {
             notification.success({
@@ -25,6 +24,7 @@ const Login = (props) => {
             const decoded = jwt(token);
             const id = decoded.userId;
             const role = decoded.role;
+            console.log("role :", role);
             setTimeout(() => {
                 {
                     role === "Super Admin"
@@ -35,21 +35,11 @@ const Login = (props) => {
         };
     };
 
-    useEffect(() => {
-        const event = async (e) => {
-            e.preventDefault();
-            handleLogin();
-        };
-    }, []);
-
-    const onFinish = (values) => {
-        console.log('Received values of form: ', values);
-    };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-    return (
 
+    return (
         <Form
             action='POST'
             name="normal_login"
@@ -112,7 +102,7 @@ const Login = (props) => {
                     </Link>
                 </Form.Item>
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-form-button" onClick={handleLogin} >
+                    <Button type="primary" htmlType="submit" className="login-form-button" >
                         Log in
                     </Button>
                 </Form.Item>

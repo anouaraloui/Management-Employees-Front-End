@@ -4,9 +4,9 @@ import ContentDashboard from '../content/index';
 const { Content, Sider } = Layout;
 
 const LayoutApp = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  // const {
+  //   token: { colorBgContainer },
+  // } = theme.useToken();
   return (
     <>
       <Layout >
@@ -18,9 +18,12 @@ const LayoutApp = () => {
           }}
           onCollapse={(collapsed, type) => {
             console.log(collapsed, type);
-          }}          
+          }} 
+          style={{
+            minHeight: '100vh'
+          }}         
           >
-          <Menu>
+          <Menu >
             <MenuDashboard />
           </Menu>
         </Sider>
@@ -28,14 +31,13 @@ const LayoutApp = () => {
         <Layout>
 
           <Content style={{
-            margin: '23px 16px 0',
-            minWidth: '1000px'
+            margin: '30px 0',
           }}>
             <div
               style={{
-                padding: 24,
-                minHeight: '96.9vh',
-                background: colorBgContainer,
+                padding: 10,
+                // minHeight: '92vh',
+                background: 'rgb(241, 245, 249)',
               }}
             >
               <ContentDashboard />

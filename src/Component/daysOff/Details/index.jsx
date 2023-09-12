@@ -33,36 +33,72 @@ function Details({  sick,daysOff,firstName, lastName, email, role, building,bala
           >
             <Input 
               value={`${firstName}  ${lastName} `}
+              disabled
+              style={{
+                fontWeight: 600,
+                color: 'black'
+              }}
             />
           </Form.Item>
           <Form.Item label='Email'>
             <Input
               value={email}
+              disabled
+              style={{
+                fontWeight: 600,
+                color: 'black'
+              }}
             />
           </Form.Item>
           <Form.Item label='Role'>
             <Input 
               value={role}
+              disabled
+              style={{
+                fontWeight: 600,
+                color: 'black'
+              }}
+              
             />
           </Form.Item>
           <Form.Item label='Building'>
             <Input 
               value={building}
+              disabled
+              style={{
+                fontWeight: 600,
+                color: 'black'
+              }}
             />
           </Form.Item>
           <Form.Item label='Balance of Days'>
             <Input 
               value={balanceDays}
+              disabled
+              style={{
+                fontWeight: 600,
+                color: 'black'
+              }}
             />
           </Form.Item>
           <Form.Item label='Days Off'>
             <Input 
               value={daysOff}
+              disabled
+              style={{
+                fontWeight: 600,
+                color: 'black'
+              }}
             />
           </Form.Item>
           <Form.Item label='Days of Sick'>
             <Input 
               value={sick}
+              disabled
+              style={{
+                fontWeight: 600,
+                color: 'black'
+              }}
             />
           </Form.Item>          
         </Form>       

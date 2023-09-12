@@ -1,4 +1,4 @@
-import { FloatButton, Modal, Typography } from 'antd';
+import { Card, FloatButton, Modal, Typography } from 'antd';
 import { useState, useEffect } from 'react';
 import { axiosInstance } from '../../../api';
 import FilterDays from '../../../Component/daysOff/Filter/index';
@@ -46,7 +46,11 @@ const AllDaysOff = () => {
 
   return (
     <>
-      <FloatButton.BackTop />
+      <Card
+    style={{
+      borderRadius: '25px'
+    }}
+    >
       <FilterDays onFilterData={getDataFilter} filterDays={getTotalDays} />
       <div>
         <Typography.Title
@@ -70,11 +74,12 @@ const AllDaysOff = () => {
             onDetails={onDetails}
             scrollData={{
               x: 1700,
-              y: 430,
+              y: 365,
             }}
           />
         </div>
-      </div>
+      </div>      
+      </Card> 
       <Modal
         style={{
           maxWidth: 400,

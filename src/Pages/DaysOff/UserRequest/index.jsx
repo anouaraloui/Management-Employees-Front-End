@@ -1,4 +1,4 @@
-import { FloatButton, Modal, Space } from 'antd';
+import { Card, FloatButton, Modal, Space } from 'antd';
 import { useState } from 'react';
 import { axiosInstance } from '../../../api';
 import { useEffect } from 'react';
@@ -35,7 +35,12 @@ const UserDaysOff = () => {
 
   return (
     <>
-      <FloatButton.BackTop />
+      <Card
+    style={{
+      borderRadius: '25px'
+    }}
+    >
+
       <Space.Compact
         size='large'
         style={{
@@ -50,7 +55,12 @@ const UserDaysOff = () => {
         modifiedData={modifiedData}
         totalDaysOff={totalDaysOff}
         loading={loading}
+        scrollData={{
+          x: 1700,
+          y: 365,
+        }}
       />
+      </Card>
     </>
   )
 }

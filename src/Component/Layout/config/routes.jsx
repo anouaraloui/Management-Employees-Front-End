@@ -65,10 +65,33 @@ export const routesUser =[
      path: '/newDaysOff' ,
      element:  AddDaysOff ,
      routeKey: 'adddaysoff'
-   },
-    {
-      path: '/listDays' ,
-      element:  AllDaysOff ,
-      routeKey: 'alldaysoff'
-    },   
+   }  
+];
+
+export const routesDirMan =[    
+  {
+   path: '/users/profile/:id' ,
+   element:  UserProfile ,
+   routeKey: 'userprofile'
+ },
+ {
+   path: '/users/created' ,
+   element:  NotFound ,
+   routeKey: 'adduser'
+ },
+ {
+   path: '/dayoffUser/:id' ,
+   element:  UserDaysOff ,
+   routeKey: 'dayoff'
+ },
+ {
+   path: '/newDaysOff' ,
+   element:  AddDaysOff ,
+   routeKey: 'adddaysoff'
+ },
+  {
+    path: '/listDays' ,
+    element:  AllDaysOff ,
+    routeKey: 'alldaysoff'
+  },   
 ];

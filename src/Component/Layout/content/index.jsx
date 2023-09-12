@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routesAdmin, routesUser, } from '../config/routes';
+import { routesAdmin, routesDirMan, routesUser, } from '../config/routes';
 import NotFound from '../../../Pages/NotFound';
 import jwtDecode from 'jwt-decode';
 
@@ -19,6 +19,14 @@ function DashboardContent() {
           <Route element={<NotFound />} path="*" />
         </Routes>
         :
+        RoleUser === "Director" || RoleUser === "Team Manager" ?
+        <Routes>
+          {
+            routesDirMan.map(({ element: Element, path, routeKey }) =>
+              <Route key={routeKey} element={<Element />} path={path} />)
+          }
+          <Route element={<NotFound />} path="*" />
+        </Routes> : 
         <Routes>
           {
             routesUser.map(({ element: Element, path, routeKey }) =>

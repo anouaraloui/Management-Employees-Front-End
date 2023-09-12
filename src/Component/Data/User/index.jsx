@@ -344,7 +344,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       bordered
       loading={loading}
       scroll={scrollData}
-      size="middle"
+      size="large"
     />
   )
 }

@@ -58,12 +58,14 @@ const FormRegister = ({ onFinish, setFile, file, form }) => {
                     maxWidth: 800,
                     position: 'relative',
                     alignItems: 'center',
-                    background: '#f5f5f5',
-                    border: 'none'
+                    background: '#fff',
+                    borderRadius: '25px',
+                    boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)'
                 }} >
-                <Form {...formItemLayout} form={form} name="register"
+                <Form {...formItemLayout} form={form} name="register" 
                     onFinish={onFinish}
-                    scrollToFirstError  >
+                    scrollToFirstError
+                      >
                     <Row gutter={[8, 24]}>
                         <Col span={12} >
                             <Form.Item
@@ -152,7 +154,7 @@ const FormRegister = ({ onFinish, setFile, file, form }) => {
                             </Form.Item>
                         </Col>
                     </Row>
-                    <Row gutter={[8, 24]}>
+                    <Row gutter={[8, 24]} >
                         <Col span={12} >
                             <Form.Item
                                 name="role"
@@ -198,18 +200,21 @@ const FormRegister = ({ onFinish, setFile, file, form }) => {
                             </Form.Item>
                         </Col>
                     </Row >
-                    <Row gutter={[8, 24]}>
-                        <Col span={12} offset={6}>
+                    <Row  justify={'center'}>
+                        <Col span={8} >
                             <Form.Item {...tailFormItemLayout}>
                                 <Button type="primary" htmlType="submit" >
                                     Register
                                 </Button>
-                                <Button type="dashed" htmlType="reset"
-                                    style={{ marginLeft: 20 }}>
-                                    Cancel
-                                </Button>
+                                
                             </Form.Item>
 
+                        </Col>
+                        <Col span={8} >
+                            <Button type="dashed" htmlType="reset"
+                                    >
+                                    Cancel
+                                </Button>
                         </Col>
 
                     </Row>
