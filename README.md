@@ -13,7 +13,7 @@ The idea is about an app that can manage employees alongside their days off requ
 ● Update employee </br>
 ● Disable employee </br>
 ● Delete employee </br>
-<h2>Days off management <h2> </br>
+<h3>Days off management <h3> </br>
 ● Create day off request </br>
 ● Update request before superior interception </br>
 ● Accept/Decline request </br>
