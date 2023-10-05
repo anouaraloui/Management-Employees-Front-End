@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Col, Space, Statistic, Progress, Row } from 'antd'
 import { CalendarOutlined, UserAddOutlined } from '@ant-design/icons';
 import CountUp from 'react-countup';
+import './index.css'
 const formatter = (value) => <CountUp end={value} separator="," />;
 
 function CurrentMonth({ users, request }) {
@@ -11,11 +12,14 @@ function CurrentMonth({ users, request }) {
         style={{
           justifyContent: 'center'
         }}
+        
       >
         <Col span={4}
         style={{
           margin: 20
-        }}>
+        }}
+        className='currentStat'
+        >
           <Card bordered={true}
           style={{
             borderRadius: '25px',
@@ -41,6 +45,8 @@ function CurrentMonth({ users, request }) {
                   fontSize: '2rem'                
                 }} 
                 formatter={formatter}
+                className='statUser'
+                
               />
             </Space>
           </Card>
@@ -48,7 +54,9 @@ function CurrentMonth({ users, request }) {
         <Col span={4} 
         style={{
           margin: 20
-        }}>
+        }}
+        className='currentStat'
+        >
           <Card bordered={true} 
           style={{
             borderRadius: '25px',
@@ -74,6 +82,7 @@ function CurrentMonth({ users, request }) {
                   fontSize: '2rem'                 
                 }}
                 formatter={formatter} 
+                
               />
             </Space>
           </Card>

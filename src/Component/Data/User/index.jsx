@@ -4,7 +4,7 @@ import GetColumnSearchProps from '../../SearchProps/SearchProps';
 import DeleteUser from '../../User/DeleteUser';
 import Toggle from '../../User/Toggle';
 import UpdateUser from '../../User/Update';
-
+import './index.css'
 const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
   const urlDoc = window.location.pathname
   const pathname = `/dashboard/users/profile`
@@ -34,7 +34,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
             xxl: 60,
           }} icon={<UserOutlined />} />
       },
-      fixed: 'left',
+      
       width: 40
     },
     {
@@ -45,16 +45,16 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
           title: 'First Name',
           dataIndex: 'firstName',
           align: "center",
-          fixed: 'left',
-          width: 65,
+          
+          width: 55,
 
         },
         {
           title: 'Last Name',
           dataIndex: 'lastName',
           align: "center",
-          fixed: 'left',
-          width: 65,
+          
+          width: 55,
         },
       ],
 
@@ -63,13 +63,14 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       title: 'Email',
       dataIndex: 'email',
       align: "center",
-      width: 150
+      width: 100,
+      
     },
     {
       title: 'Role',
       dataIndex: 'role',
       align: "center",
-      width: 90,
+      width: 70,
       filters: [
         {
           text: 'Super Admin',
@@ -98,7 +99,8 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
 
       ],
       filterSearch: true,
-      onFilter: (value, record) => record.role.indexOf(value) === 0
+      onFilter: (value, record) => record.role.indexOf(value) === 0,
+      
     },
     {
       title: 'Building',
@@ -120,30 +122,31 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       ],
       filterSearch: true,
       onFilter: (value, record) => record.building.indexOf(value) === 0,
-      width: 80
-
+      width: 50,    
     },
     {
       title: 'Phone',
       dataIndex: 'phone',
       align: "center",
-      width: 60
+      width: 50,
+      
     },
     {
       title: 'Days Off',
       dataIndex: 'allDaysOff',
       sorter: (a, b) => a.allDaysOff - b.allDaysOff,
       align: "center",
-      width: 50
+      width: 50,
+      
     },
     {
       title: 'Sick',
       dataIndex: 'daysOffSick',
       align: "center",
       sorter: (a, b) => a.daysOffSick - b.daysOffSick,
-      width: 50
+      width: 40
     }
-    , 
+    ,
     {
       title: 'Status',
       dataIndex: 'isActive',
@@ -162,40 +165,31 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       onFilter: (value, record) => {
         return record.isActive === value
       },
-      width: 50
+      width: 40
 
     },
     {
       title: 'Operation',
       dataIndex: 'Operation',
       render: (_, record) => {
-        if (urlDoc.includes(pathname) && modifiedData.length >= 1) {
+        if (modifiedData.length >= 1) {
           return (
-            <Space >
+            <Space>
+              <Toggle
+                record={record}
+                loadData={loadData}
+              />
+              <DeleteUser
+                record={record}
+                loadData={loadData}
+              />
               <UpdateUser
                 record={record}
                 loadData={loadData}
               />
             </Space>
           )
-        } else return (
-          <Space>
-            <Toggle
-              record={record}
-              loadData={loadData}
-            />
-            <DeleteUser
-              record={record}
-              loadData={loadData}
-            />
-            <UpdateUser
-              record={record}
-              loadData={loadData}
-            />
-          </Space>
-
-        )
-
+        }
       },
       width: 150,
       fixed: 'right',
@@ -229,6 +223,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
             xxl: 80,
           }} icon={<UserOutlined />} />
       },
+      width: 100
     },
     {
       title: 'Name',
@@ -237,49 +232,54 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
           title: 'First Name',
           dataIndex: 'firstName',
           align: "center",
-
+          width: 105
         },
         {
           title: 'Last Name',
           dataIndex: 'lastName',
           align: "center",
+          width: 105
         },
       ]
+
     },
     {
       title: 'Email',
       dataIndex: 'email',
       align: "center",
+      width: 105
     },
     {
       title: 'Role',
       dataIndex: 'role',
       align: "center",
-
-
+      width: 105
     },
     {
       title: 'Building',
       dataIndex: 'building',
       align: "center",
-
+      width: 105
     },
     {
       title: 'Phone',
       dataIndex: 'phone',
       align: "center",
+      width: 105
     },
     {
       title: 'Days Off',
       dataIndex: 'allDaysOff',
       align: "center",
+      width: 90
     },
     {
       title: 'Sick',
       dataIndex: 'daysOffSick',
       align: "center",
-    }
-    , {
+      width: 90
+    },
+    {
       title: 'Status',
       dataIndex: 'isActive',
       align: "center",
@@ -287,64 +287,37 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       onFilter: (value, record) => {
         return record.isActive === value
       },
-
+      width: 90
     },
     {
       title: 'Operation',
       dataIndex: 'Operation',
       render: (_, record) => {
-        if (urlDoc.includes(pathname) && modifiedData.length >= 1) {
+        if (modifiedData.length >= 1) {
           return (
             <Space >
-              {/* <Button onClick={() => {
-                onEditUser(record);
-              }} style={{ color: "green" }}>Edit
-                <EditOutlined />
-              </Button> */}
               <UpdateUser
                 record={record}
                 loadData={loadData}
               />
             </Space>
           )
-        } else return (
-          <Space>
-            <Toggle
-              record={record}
-              loadData={loadData}
-            />
-            <DeleteUser
-              record={record}
-              loadData={loadData}
-            />
-            <UpdateUser
-              record={record}
-              loadData={loadData}
-            />
-            {/* <Button onClick={() => {
-              onEditUser(record);
-            }} style={{ color: "green" }}>Edit
-              <EditOutlined />
-            </Button> */}
-          </Space>
-
-        )
-
+        }
       },
-      // width: 100,
-      // fixed: 'right'
+      width: 100,
     },
   ];
 
   return (
     <Table
+    className='tabledData'
       pagination={pagination}
       columns={urlDoc.includes(pathname) ? columnsProfile : columnsAllUser}
       dataSource={modifiedData}
       bordered
       loading={loading}
       scroll={scrollData}
-      size="large"
+      
     />
   )
 }

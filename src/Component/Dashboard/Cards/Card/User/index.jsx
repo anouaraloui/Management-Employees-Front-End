@@ -11,7 +11,7 @@ const StatusUser = ({userActive, userDisable}) => {
     style={{
       margin: 20
     }}
-    
+    className='cardStat'
     >
           <Card bordered={true}
             style={{
@@ -19,7 +19,6 @@ const StatusUser = ({userActive, userDisable}) => {
               boxShadow: '12px 12px 2px 1px rgba(0,255,0, .2)',
               minWidth: '140px'
             }}
-            className='cardStat'
           >
             <Space direction='horizontal' >
                 <UserOutlined 
@@ -48,7 +47,7 @@ const StatusUser = ({userActive, userDisable}) => {
         style={{
           margin: 20
         }}
-        
+        className='cardStat'
         >
           <Card bordered={true}
             style={{
@@ -56,7 +55,6 @@ const StatusUser = ({userActive, userDisable}) => {
               boxShadow: '12px 12px 2px 1px rgba(255,0,0, .2)',
               minWidth: '140px'
             }}
-            className='cardStat'
           >
             <Space direction='horizontal' >
             <UserOutlined 

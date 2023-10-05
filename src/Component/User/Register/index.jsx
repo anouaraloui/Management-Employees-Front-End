@@ -2,6 +2,7 @@ import { Button, Form, Input, Select, Card, Row, Col } from 'antd';
 import avatarDefault from '../../../assets/avatar.jpg'
 import { optionBuilding, optionsRole } from '../OptionSelect/optionsSelect';
 import convertToBase64 from '../../ConvertImage/index';
+import './index.css'
 const { Option } = Select;
 const formItemLayout = {
     labelCol: {
@@ -53,19 +54,11 @@ const FormRegister = ({ onFinish, setFile, file, form }) => {
 
     return (
         <>
-            <Card
-                style={{
-                    maxWidth: 800,
-                    position: 'relative',
-                    alignItems: 'center',
-                    background: '#fff',
-                    borderRadius: '25px',
-                    boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)'
-                }} >
-                <Form {...formItemLayout} form={form} name="register" 
+            <Card className='cardRegister' >
+                <Form {...formItemLayout} form={form} name="register"
                     onFinish={onFinish}
                     scrollToFirstError
-                      >
+                >
                     <Row gutter={[8, 24]}>
                         <Col span={12} >
                             <Form.Item
@@ -200,23 +193,22 @@ const FormRegister = ({ onFinish, setFile, file, form }) => {
                             </Form.Item>
                         </Col>
                     </Row >
-                    <Row  justify={'center'}>
+                    <Row justify={'center'}>
                         <Col span={8} >
                             <Form.Item {...tailFormItemLayout}>
                                 <Button type="primary" htmlType="submit" >
                                     Register
                                 </Button>
-                                
                             </Form.Item>
-
                         </Col>
                         <Col span={8} >
-                            <Button type="dashed" htmlType="reset"
-                                    >
+                            <Form.Item>
+                                <Button type="dashed" htmlType="reset"
+                                >
                                     Cancel
                                 </Button>
+                            </Form.Item>
                         </Col>
-
                     </Row>
                 </Form>
             </Card>

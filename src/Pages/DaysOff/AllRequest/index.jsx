@@ -1,4 +1,4 @@
-import { Card, FloatButton, Modal, Typography } from 'antd';
+import { Card, Modal, Typography } from 'antd';
 import { useState, useEffect } from 'react';
 import { axiosInstance } from '../../../api';
 import FilterDays from '../../../Component/daysOff/Filter/index';

@@ -1,5 +1,5 @@
 import { Form, Space, Button, DatePicker, Select, Input, Typography, } from 'antd';
-
+import './index.css'
 function FormFilter({ onFilter, clearForm, setCreatedAtAfter, setCreatedAtBefore, setLimit, setSortBy }) {
 
   const { RangePicker } = DatePicker;
@@ -16,7 +16,7 @@ function FormFilter({ onFilter, clearForm, setCreatedAtAfter, setCreatedAtBefore
     <>
       <Space.Compact size='large' style={{ margin: '0 17px' }} direction='horizontal'>
         <Form layout='inline' form={form} >
-          <Form.Item>
+          <Form.Item className='formItem'>
             <Typography.Title
               level={5}
               style={{
@@ -26,7 +26,7 @@ function FormFilter({ onFilter, clearForm, setCreatedAtAfter, setCreatedAtBefore
               Filter Data:
             </Typography.Title>
           </Form.Item>
-          <Form.Item name={"SortBy"}>
+          <Form.Item name={"SortBy"} className='formItem'>
             <Select onSelect={(e) => setSortBy(e)} placeholder="Field to sort by" style={{ width: '100%' }}
               options={[
                 {
@@ -36,26 +36,26 @@ function FormFilter({ onFilter, clearForm, setCreatedAtAfter, setCreatedAtBefore
               ]}
             />
           </Form.Item>
-          <Form.Item name={"limit"}>
+          <Form.Item name={"limit"} className='formItem'>
             <Input onChange={(e) => setLimit(e.target.value)} placeholder='Limit' style={{ width: 65 }} />
           </Form.Item>
-          <Form.Item name={"dateOfSort"}>
+          <Form.Item name={"dateOfSort"} className='formItem'>
             <RangePicker
               format="YYYY-MM-DD"
               onChange={onChange}
               style={{ width: '100%' }}
             />
           </Form.Item>
-          <Form.Item>
-            <Button onClick={() => onFilter()} >
+          <Form.Item className='formItem'>
+            <Button onClick={() => onFilter()} style={{ margin: '0px 10px' }}>
               Filter
             </Button>
-          </Form.Item>
-          <Form.Item>
             <Button onClick={() => {
               form.resetFields();
               clearForm()
-            }}  >Cancel</Button>
+            }} >
+              Cancel
+            </Button>
           </Form.Item>
         </Form>
       </Space.Compact>

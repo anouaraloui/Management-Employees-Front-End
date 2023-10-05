@@ -1,6 +1,7 @@
-import { Layout, Menu, theme } from 'antd';
+import { Layout, Menu } from 'antd';
 import MenuDashboard from '../sideBar/index';
 import ContentDashboard from '../content/index';
+import './index.css'
 const { Content, Sider } = Layout;
 
 const LayoutApp = () => {
@@ -9,7 +10,7 @@ const LayoutApp = () => {
   // } = theme.useToken();
   return (
     <>
-      <Layout >
+      <Layout className='layout'>
         <Sider
           breakpoint="lg"
           collapsedWidth="0"
@@ -28,8 +29,7 @@ const LayoutApp = () => {
           </Menu>
         </Sider>
 
-        <Layout>
-
+        <Layout className='container'>
           <Content style={{
             margin: '30px 0',
           }}>

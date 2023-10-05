@@ -16,8 +16,7 @@ function Profile() {
   }, []);
 
   const loadData = async () => {
-    setLoading(true);
-    const response = await axiosInstance.get(`/users?page=1&limit=30&sortBy=createdAt&createdAtBefore=${dateNow}&createdAtAfter=2023-01-01`);
+    setLoading(true);   const response = await axiosInstance.get(`/users?page=1&limit=30&sortBy=createdAt&createdAtBefore=${dateNow}&createdAtAfter=2023-01-01`);
     setGridData(response.data.users);
     setTotalUsers(response.data.totalUsers);
     setLoading(false);
@@ -27,15 +26,17 @@ function Profile() {
     ...item,
     key: item._id
   }));
-
+ 
   const getDataFilter = (filterData) => { setGridData(filterData) };
   const getTotalUsers = (limitUsers) => { setTotalUsers(limitUsers) };
 
   return (
     <>
+      
     <Card
     style={{
-      borderRadius: '25px'
+      borderRadius: '25px',
+      margin: '0px 20px'
     }}
     >    
       <FilterData onFilterData={getDataFilter} filterUsersData={getTotalUsers}
@@ -48,20 +49,21 @@ function Profile() {
           }}
         >
           Total Users : {totalUsersData}
-        </Typography.Title>
+        </Typography.Title>        
         <div
           style={{
             marginTop: 0
           }}
         >
-          <Data
+          
+          <Data          
             pagination={true}
             modifiedData={modifiedData}
             loading={loading}
             loadData={loadData}
             scrollData={{
-              x: 1700,
-              y: 348,
+              x: 1400,
+              y: 350,
             }}
           />
         </div>

@@ -1,9 +1,8 @@
 @media (max-width: 1407px) {
-    .cardStat {
+    .cardStatReq {
         margin-right: 20px !important;
         min-width: 140px !important;
         flex-wrap: wrap;
         display: flex;
     }
 }
-

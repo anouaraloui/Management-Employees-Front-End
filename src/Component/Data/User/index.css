@@ -1,0 +1,35 @@
+/* 
+@media (max-width: 480px) {
+    .tabledData {
+        min-width: 660px !important;
+        background-color: rgb(201, 6, 54) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .tabledData {
+        min-width: 660px !important;
+        background-color: black ;
+    }
+}
+
+@media (max-width: 1024px) {
+    .tabledData {
+        min-width: 660px !important;
+        background-color: blue ;
+    }
+}
+
+@media (max-width: 1200px) {
+    .tabledData {
+        min-width: 660px !important;
+        background-color: rgb(160, 20, 215) ;
+    }
+}
+
+@media (max-width: 1920px) {
+    .tabledData {
+        min-width: 700px !important;
+        background-color: rgb(81, 73, 73) ;
+    }
+} */

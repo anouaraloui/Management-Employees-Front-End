@@ -1,6 +1,7 @@
 import { Card, Col, Row, Space, Statistic } from 'antd'
 import { ScheduleOutlined} from '@ant-design/icons';
 import CountUp from 'react-countup';
+import './index.css'
 const formatter = (value) => <CountUp end={value} />;
 
 const RequestDays = ({totalDaysOff}) => {
@@ -9,13 +10,16 @@ const RequestDays = ({totalDaysOff}) => {
     <Col span={5}
     style={{
       margin: 20
-    }}>
+    }}
+    className='cardStatReq'
+    >
           <Card bordered={true}
             style={{
               borderRadius: '25px',
               boxShadow: '12px 12px 2px 1px rgba(0, 0, 255, .2)',
               minWidth: '140px'
             }}
+            className='cardStatReq'
           >
             <Space direction='horizontal'>
             < ScheduleOutlined 
