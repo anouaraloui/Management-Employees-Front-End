@@ -49,13 +49,6 @@ const Login = (props) => {
             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
-            // style={{
-            //     position: 'relative',
-            //     maxWidth: 500,
-            //     top: '10rem',
-            //     left: '35rem'
-            // }}
-            
             >
             <Card bordered={false}
                 style={{

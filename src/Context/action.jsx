@@ -1,4 +1,3 @@
-
 import { notification } from 'antd';
 import { axiosInstance } from "../api";
 import jwtDecode from 'jwt-decode';
@@ -30,20 +29,19 @@ export const loginUser = async (loginPayload) => {
       message: error.data.error
     })
   }
-}
+};
 
 export const isAuthenticated = async () => {
 	const user = localStorage.getItem('currentUser');
 	if (!user) {
-		return {}
+		return {};
 	}
 	return JSON.parse(user);
 };
 
 export  const logout = async () => {
-  localStorage.clear()
-
-}
+  localStorage.clear();
+};
 
 export  const forgotPassword = async(forgotPayload) => {
   const requestOptions = {
@@ -65,7 +63,7 @@ export  const forgotPassword = async(forgotPayload) => {
     })
   }
 
-}
+};
 
 export  const resetPassword = async (forgotPayload) => {
   const requestOptions = {
@@ -74,39 +72,17 @@ export  const resetPassword = async (forgotPayload) => {
     data: forgotPayload,
   };
   try {
-
     let response = await axiosInstance('/auth/requestResetPassword', requestOptions)
-
-
-    let data = response
+    let data = response;
     if (data) {
-      let userData = JSON.stringify(data)
-      return userData
-
+      let userData = JSON.stringify(data);
+      return userData;
     }
   } catch (error) {
     console.log({ error: 'Can not change the password !' });
-  }
-}
+  };
+};
 
-export const getAll = async ()=>{ 
-  try {
-     const token = localStorage.getItem('token')
-    const decodedToken = jwtDecode(token)
-    const userId = decodedToken.userId
-    const admin = decodedToken.role
-    console.log('admin :', admin);
-    if(admin === "Super Admin")
-    console.log('yep');
-    const response= axiosInstance.get('/users', 
- )
- return response;
-  } catch (error) {
-    console.log({ error: 'Can notdisplay !' });
-  }
-  
-  
-}
 
 export const setAuthToken = token => {
   if (token) {
@@ -115,29 +91,4 @@ export const setAuthToken = token => {
   }
   else
       delete axios.defaults.headers.common["Authorization"];
-}
-
-export const addUser = async (payload) => {
-  const requestOptions = {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    data: payload,
-  };
-  try {
-    let response = await axiosInstance('/users', requestOptions)
-    let data = response
-    if (data) {
-      
-      return data
-    }
-    return data;
-  } catch (error) {
-    notification.error({
-      placement: 'top',
-      bottom: 50,
-      duration: 1,
-      message: error.data.error
-    })
-  }
-}
-
+};
