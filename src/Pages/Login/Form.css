@@ -10,3 +10,22 @@
 .login-form .login-form-button {
     width: 100%;
 }
+
+@media (max-width: 480px) {
+    .cardForm {
+        width: 280px !important;
+        background-color: blue !important;
+    }
+}
+
+/* @media (max-width: 810px) {
+    .cardForm {
+        width: 330px !important;
+    }
+} */
+
+@media (min-width: 810px) {
+    .cardForm {
+        width: 500px !important;
+    }
+}

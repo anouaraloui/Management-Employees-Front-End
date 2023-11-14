@@ -49,17 +49,20 @@ const Login = (props) => {
             }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
-            style={{
-                position: 'relative',
-                maxWidth: 500,
-                top: '10rem',
-                left: '35rem'
-            }}>
+            // style={{
+            //     position: 'relative',
+            //     maxWidth: 500,
+            //     top: '10rem',
+            //     left: '35rem'
+            // }}
+            
+            >
             <Card bordered={false}
                 style={{
-                    width: 500,
                     background: 'rgb(240, 242, 245)'
-                }}>
+                }}
+                className='cardForm'
+                >
                 <Form.Item
                     name="email"
                     rules={[

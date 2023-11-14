@@ -1,0 +1,24 @@
+@media (max-width: 480px) {
+    .login {
+        position: relative;
+        top: 23rem !important;
+        margin-left: 4rem !important;
+    }
+}
+@media (max-width: 815px) {
+    .login {
+        position: relative;
+        top: 23rem !important;
+        margin-left: 3rem !important;
+    }
+}
+
+
+
+@media (max-width: 1920px) {
+    .login {
+        position: relative;
+        top: 10rem;
+        margin-left: 35rem;
+    }
+} 

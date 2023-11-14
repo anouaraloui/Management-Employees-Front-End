@@ -23,7 +23,7 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
           dataIndex: 'startDay',
           align: "center",
           render: (date) => { return <p> {dayjs(date).format('YYYY-MM-DD')} </p> },
-          fixed: 'left',
+          
           width: 90
 
         },
@@ -32,7 +32,7 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
           dataIndex: 'endDay',
           align: "center",
           render: (date) => { return <p> {dayjs(date).format('YYYY-MM-DD')} </p> },
-          fixed: 'left',
+          
           width: 90
         },
       ]
@@ -42,14 +42,14 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
       dataIndex: 'type',
       align: "center",
       width: 70,
-      fixed: 'left'
+      
     },
     {
       title: 'Days',
       dataIndex: 'reqDayOff',
       align: "center",
       width: 70,
-      fixed: 'left',
+      
       sorter: (a, b) => a.reqDayOff - b.reqDayOff,
     },
     {
