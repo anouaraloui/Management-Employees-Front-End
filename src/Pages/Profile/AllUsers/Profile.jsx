@@ -16,7 +16,8 @@ function Profile() {
   }, []);
 
   const loadData = async () => {
-    setLoading(true);   const response = await axiosInstance.get(`/users?page=1&limit=30&sortBy=createdAt&createdAtBefore=${dateNow}&createdAtAfter=2023-01-01`);
+    setLoading(true);   
+    const response = await axiosInstance.get(`/users?page=1&limit=30&sortBy=createdAt&createdAtBefore=${dateNow}&createdAtAfter=2023-01-01`);
     setGridData(response.data.users);
     setTotalUsers(response.data.totalUsers);
     setLoading(false);
