@@ -18,17 +18,11 @@ const AddDaysOff = ({ loadData }) => {
     const userId = decodedToken.userId;
     const { RangePicker } = DatePicker;
     
-    const onChange = (value, dateString) => {
-       
-        console.log('Selected Time: ', value);
-        console.log('Formatted Selected Time: ', dateString);
+    const onChange = (value, dateString) => {       
         const endDay = dateString[1];
         setEndDay(endDay);
         const startDay = dateString[0];
         setStarDay(startDay);
-        console.log("start day :", startDay, "end day: ", endDay);
-        // 2024-02-12
-        
     };
     const onFinish = async (values) => {
         form.validateFields()
@@ -61,18 +55,11 @@ const AddDaysOff = ({ loadData }) => {
         setNewReq(true);
     }
 
-    
-    
-    // eslint-disable-next-line arrow-body-style
     const disabledDate = (current) => {
         const holidaysPublicDays = ['01-01', '03-20', '04-09', '05-01', '06-16', '07-08', '07-25', '08-13', '09-16', '10-15', '12-17']
-    // Can not select days before today and today
-    return current && current < dayjs().endOf('day') || holidaysPublicDays.includes(dayjs(current).format('MM-DD'));
-    
+        return current && current < dayjs().endOf('day') || holidaysPublicDays.includes(dayjs(current).format('MM-DD'));
   };
   
-
-
     return (
         <>
             <Button onClick={addRequest}

@@ -15,7 +15,6 @@ const Decision = ({ loadData, record }) => {
     const onFinish = (values) => {
         form.validateFields()
             .then(async (values) => {
-                console.log('decision ', values);
                 const id = record._id;
                 await axiosInstance.patch(`/daysOff/decision/${id}`, { ...values, userId })
                     .then((response) => {

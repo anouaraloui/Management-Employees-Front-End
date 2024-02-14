@@ -37,4 +37,4 @@ const DeleteAll = ({ loadData }) => {
   )
 }
 
-export default DeleteAll
+export default DeleteAll;

@@ -19,14 +19,12 @@ const EditRequest = ({ loadData, record }) => {
             });
     }
     const onUpdate = (record) => {
-
         setEditingReq(record);
         setIsEditing(true);
     }
 
     const resetEditReq = () => {
         setIsEditing(false);
-
     }
     return (
         <>
