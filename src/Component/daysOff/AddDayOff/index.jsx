@@ -3,6 +3,9 @@ import { Button, Form, Input, Select, message, Card, Row, Col, DatePicker, Modal
 import jwtDecode from 'jwt-decode';
 import { axiosInstance } from '../../../api';
 import { PlusCircleOutlined } from '@ant-design/icons';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+dayjs.extend(customParseFormat);
 
 const AddDaysOff = ({ loadData }) => {
     const [form] = Form.useForm();
@@ -14,14 +17,18 @@ const AddDaysOff = ({ loadData }) => {
     const decodedToken = jwtDecode(token);
     const userId = decodedToken.userId;
     const { RangePicker } = DatePicker;
-
+    
     const onChange = (value, dateString) => {
+       
         console.log('Selected Time: ', value);
         console.log('Formatted Selected Time: ', dateString);
         const endDay = dateString[1];
         setEndDay(endDay);
         const startDay = dateString[0];
         setStarDay(startDay);
+        console.log("start day :", startDay, "end day: ", endDay);
+        // 2024-02-12
+        
     };
     const onFinish = async (values) => {
         form.validateFields()
@@ -53,6 +60,19 @@ const AddDaysOff = ({ loadData }) => {
     const addRequest = () => {
         setNewReq(true);
     }
+
+    
+    
+    // eslint-disable-next-line arrow-body-style
+    const disabledDate = (current) => {
+        const holidaysPublicDays = ['01-01', '03-20', '04-09', '05-01', '06-16', '07-08', '07-25', '08-13', '09-16', '10-15', '12-17']
+    // Can not select days before today and today
+    return current && current < dayjs().endOf('day') || holidaysPublicDays.includes(dayjs(current).format('MM-DD'));
+    
+  };
+  
+
+
     return (
         <>
             <Button onClick={addRequest}
@@ -103,6 +123,8 @@ const AddDaysOff = ({ loadData }) => {
                                         format="YYYY-MM-DD"
                                         onChange={onChange}
                                         style={{ width: '100%' }}
+                                        disabledDate={disabledDate }
+                                        
                                     />
                                 </Form.Item>
                             </Col>
