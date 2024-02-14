@@ -57,7 +57,7 @@ const AddDaysOff = ({ loadData }) => {
 
     const disabledDate = (current) => {
         const holidaysPublicDays = ['01-01', '03-20', '04-09', '05-01', '06-16', '07-08', '07-25', '08-13', '09-16', '10-15', '12-17']
-        return current && current < dayjs().endOf('day') || holidaysPublicDays.includes(dayjs(current).format('MM-DD'));
+        return holidaysPublicDays.includes(dayjs(current).format('MM-DD'));
   };
   
     return (
