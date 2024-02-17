@@ -3,7 +3,6 @@ import jwtDecode from 'jwt-decode';
 import { axiosInstance } from '../../../api';
 import { isAuthenticated, setAuthToken } from '../../../Context/action';
 import Data from '../../../Component/Data/User/index';
-import { Card } from 'antd';
 
 function UserProfile() {
   const [gridData, setGridData] = useState([]);
@@ -46,84 +45,6 @@ function UserProfile() {
             x: 0,
           }}   
         />
-    
-      {/* <Card
-    style={{
-      width: 320,
-      margin: 'auto'
-    }}
-    cover={
-      <img
-        alt="profile picture"
-        src={gridData.map(avatar=> avatar.profile)}
-      />
-    }
-    actions={
-      [
-        
-        <EditOutlined key="edit" onClick={handleClick}/>
-      ]
-    
-  }
-
-    extra={<UpdateUser
-      record={gridData}
-      loadData={loadData}
-    />}
-    
-  >
-    
-    <Meta
-      avatar={<img src={ gridData.map(profile=> profile.profile)} style={{
-          backgroundColor: '#f56a00',
-          width: 60
-        }}
-           /> }
-      title={gridData.map(name=> `${name.firstName} ${name.lastName}` )}
-      
-    />
-  
-    <table>
-  <tr>
-    <td>Email</td>
-    <td>{gridData.map(email=> email.email)}</td>
-  </tr>
-  <tr>
-    <td>Role</td>
-    <td>{gridData.map(role=> role.role)}</td>
-  </tr>
-  <tr>
-    <td>Building</td>
-    <td>{gridData.map(building=> building.building)}</td>
-  </tr>
-  <tr>
-    <td>Phone</td>
-    <td>{gridData.map(phone=> phone.phone)}</td>
-  </tr>
-  <tr>
-    <td>Days Off</td>
-    <td>{gridData.map(allDaysOff=> allDaysOff.allDaysOff)}</td>
-  </tr>
-  <tr>
-    <td>Sick</td>
-    <td>{gridData.map(daysOffSick=> daysOffSick.daysOffSick)}</td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td>{gridData.map(isActive=> { 
-      return <span>{isActive.isActive ? 'Active' : 'Disable'}</span>
-      })}</td>
-  </tr>
-  <tr>
-  <UpdateUser
-      record={gridData}
-      loadData={loadData}
-    />
-  </tr>
-</table>
-
-  </Card> */}
-  
     </div>
   );
 }
