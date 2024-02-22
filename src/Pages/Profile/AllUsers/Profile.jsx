@@ -31,8 +31,7 @@ function Profile() {
   const getTotalUsers = (limitUsers) => { setTotalUsers(limitUsers) };
 
   return (
-    <>
-      
+    <>      
     <Card
     style={{
       borderRadius: '25px',

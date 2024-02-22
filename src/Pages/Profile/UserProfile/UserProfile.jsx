@@ -33,9 +33,7 @@ function UserProfile() {
     ...item,
     key: item._id
   }));
-  return (
-    <div >
-      
+  return ( 
         <Data
           loadData={loadData}
           pagination={false}
@@ -45,7 +43,6 @@ function UserProfile() {
             x: 0,
           }}   
         />
-    </div>
   );
 }
 

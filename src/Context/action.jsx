@@ -65,11 +65,11 @@ export  const forgotPassword = async(forgotPayload) => {
 
 };
 
-export  const resetPassword = async (forgotPayload) => {
+export  const resetPassword = async (resetPayload) => {
   const requestOptions = {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
-    data: forgotPayload,
+    data: resetPayload,
   };
   try {
     let response = await axiosInstance('/auth/requestResetPassword', requestOptions)
@@ -79,15 +79,18 @@ export  const resetPassword = async (forgotPayload) => {
       return userData;
     }
   } catch (error) {
-    console.log({ error: 'Can not change the password !' });
+    notification.error({
+      placement: 'top',
+      bottom: 50,
+      duration: 1,
+      message: "Somthing went wrong!"
+    })
   };
 };
-
 
 export const setAuthToken = token => {
   if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-
   }
   else
       delete axios.defaults.headers.common["Authorization"];

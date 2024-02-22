@@ -23,7 +23,6 @@ const useUserContext = () => {
 			}
 			setCurrentUser(currentUser);
 		};
-
 		checkLoggedIn();
 	}, []);
 	const value = [currentUser, setCurrentUser,email, setEmail, password, setPassword,confirmPassword, setConfirmPassword]

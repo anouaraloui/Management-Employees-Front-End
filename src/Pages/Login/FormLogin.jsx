@@ -8,7 +8,7 @@ import { useUserContext } from '../../Context/context';
 import jwt from 'jwt-decode'
 
 
-const Login = (props) => {
+const Login = () => {
     const [email, setEmail, password, setPassword] = useUserContext();
     const history = useNavigate();
     const onFinish = async (values) => {
@@ -84,8 +84,7 @@ const Login = (props) => {
                         prefix={<LockOutlined className="site-form-item-icon" />}
                         type="password"
                         value={password}
-                        onChange={(e) => { setPassword(e.target.value) }}
-
+                        onChange={(e) => { setPassword(e.target.value)}}
                         placeholder="Password"
                     />
                 </Form.Item>

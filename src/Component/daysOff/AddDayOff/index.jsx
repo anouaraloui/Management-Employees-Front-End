@@ -4,8 +4,7 @@ import jwtDecode from 'jwt-decode';
 import { axiosInstance } from '../../../api';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
-dayjs.extend(customParseFormat);
+
 
 const AddDaysOff = ({ loadData }) => {
     const [form] = Form.useForm();

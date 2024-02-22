@@ -18,12 +18,6 @@
     }
 }
 
-/* @media (max-width: 810px) {
-    .cardForm {
-        width: 330px !important;
-    }
-} */
-
 @media (min-width: 810px) {
     .cardForm {
         width: 500px !important;

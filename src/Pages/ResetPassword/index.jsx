@@ -72,7 +72,6 @@ const ResetPassword = () => {
                         type="password"
                         value={password}
                         onChange={(e) => { setPassword(e.target.value) }}
-
                         placeholder="New Password"
                     />
                 </Form.Item>

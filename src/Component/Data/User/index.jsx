@@ -4,7 +4,6 @@ import GetColumnSearchProps from '../../SearchProps/SearchProps';
 import DeleteUser from '../../User/DeleteUser';
 import Toggle from '../../User/Toggle';
 import UpdateUser from '../../User/Update';
-import './index.css'
 const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
   const urlDoc = window.location.pathname
   const pathname = `/dashboard/users/profile`

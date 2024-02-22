@@ -5,9 +5,6 @@ import './index.css'
 const { Content, Sider } = Layout;
 
 const LayoutApp = () => {
-  // const {
-  //   token: { colorBgContainer },
-  // } = theme.useToken();
   return (
     <>
       <Layout className='layout'>
@@ -36,7 +33,6 @@ const LayoutApp = () => {
             <div
               style={{
                 padding: 10,
-                // minHeight: '92vh',
                 background: 'rgb(241, 245, 249)',
               }}
             >
