@@ -17,14 +17,12 @@ function UserProfile() {
 
   const loadData = async () => {
     if (isAuthenticated) {
-      setAuthToken(token)
-      console.log('token', token);
-      setLoading(true)
+      setAuthToken(token);
+      setLoading(true);
       axiosInstance.get(`/users/${id}`)
         .then((response) => {
-          console.log('respons', response.data);
           setGridData(response.data);
-          setLoading(false)
+          setLoading(false);
         })
     }
   };

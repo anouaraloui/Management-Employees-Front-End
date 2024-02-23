@@ -105,4 +105,4 @@ const Decision = ({ loadData, record }) => {
     )
 }
 
-export default Decision
+export default Decision;

@@ -12,7 +12,6 @@ const AddUser = () => {
     const roleUser = decodedToken.role;
     const [file, setFile] = useState('');
     const onFinish = async (values) => {
-        console.log('values', values);
         try {
             if (roleUser != "Super Admin") {
                 message.error("You can't add new employee");

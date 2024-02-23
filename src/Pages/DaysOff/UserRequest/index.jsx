@@ -24,7 +24,7 @@ const UserDaysOff = () => {
       .then((response) => {
         setRequest(response.data);
         setLoading(false);
-        setTotalDaysOff(response.data.length)
+        setTotalDaysOff(response.data.length);
       })
     };
 
@@ -40,7 +40,6 @@ const UserDaysOff = () => {
       borderRadius: '25px'
     }}
     >
-
       <Space.Compact
         size='large'
         style={{

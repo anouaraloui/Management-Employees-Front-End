@@ -22,17 +22,14 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
           title: 'Start Day',
           dataIndex: 'startDay',
           align: "center",
-          render: (date) => { return <p> {dayjs(date).format('YYYY-MM-DD')} </p> },
-          
+          render: (date) => { return <p> {dayjs(date).format('YYYY-MM-DD')} </p> },          
           width: 90
-
         },
         {
           title: 'End Day',
           dataIndex: 'endDay',
           align: "center",
-          render: (date) => { return <p> {dayjs(date).format('YYYY-MM-DD')} </p> },
-          
+          render: (date) => { return <p> {dayjs(date).format('YYYY-MM-DD')} </p> },          
           width: 90
         },
       ]
@@ -41,15 +38,13 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
       title: 'Type',
       dataIndex: 'type',
       align: "center",
-      width: 70,
-      
+      width: 70,     
     },
     {
       title: 'Days',
       dataIndex: 'reqDayOff',
       align: "center",
-      width: 70,
-      
+      width: 70,      
       sorter: (a, b) => a.reqDayOff - b.reqDayOff,
     },
     {
@@ -66,7 +61,6 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
           align: "center",
           render: (status) => {
             return <p>{status.decisionManager.status
-
               ? <CheckCircleOutlined
                 style={{
                   color: 'green',
@@ -121,7 +115,6 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
             }</p>
           },
           width: 75
-
         },
         {
           title: 'Justification',

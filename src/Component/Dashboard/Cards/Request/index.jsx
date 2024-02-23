@@ -28,9 +28,8 @@ const RequestDays = ({totalDaysOff}) => {
               backgroundColor: 'rgba(0,0,255,0.25',
               borderRadius: 20,
               fontSize: '2rem',
-              padding: 8
-              
-          }}/>
+              padding: 8,
+              }}/>
             <Statistic
               title="Users Request"
               value={totalDaysOff}

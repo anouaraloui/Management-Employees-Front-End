@@ -1,6 +1,6 @@
 import React from 'react'
 import './index.css'
-import StatsData from './Cards/Card'
+import StatsData from './Cards'
 const Dashboard = () => {
   return (
     <div className='MainDash'>

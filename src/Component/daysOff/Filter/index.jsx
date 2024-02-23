@@ -40,8 +40,7 @@ function FilterDays(props) {
     setCreatedAtAfter('');
     setCreatedAtBefore('');
     setLimit('');
-    setSortBy('');
-   
+    setSortBy('');   
   };
   const getCreatedAfter = (createdAtAfter) => {setCreatedAtAfter(createdAtAfter)};
   const getSortBy = (sortBy) => {setSortBy(sortBy)};

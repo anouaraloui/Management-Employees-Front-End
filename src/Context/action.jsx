@@ -1,6 +1,5 @@
 import { notification } from 'antd';
 import { axiosInstance } from "../api";
-import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 
 export const loginUser = async (loginPayload) => {
@@ -62,7 +61,6 @@ export  const forgotPassword = async(forgotPayload) => {
       message: error.data.error
     })
   }
-
 };
 
 export  const resetPassword = async (resetPayload) => {

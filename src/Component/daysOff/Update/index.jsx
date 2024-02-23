@@ -26,6 +26,7 @@ const EditRequest = ({ loadData, record }) => {
     const resetEditReq = () => {
         setIsEditing(false);
     }
+
     return (
         <>
             <Button
@@ -62,4 +63,4 @@ const EditRequest = ({ loadData, record }) => {
     )
 }
 
-export default EditRequest
+export default EditRequest;

@@ -1,7 +1,7 @@
 import { Row, Typography } from 'antd'
 import { SmileTwoTone } from '@ant-design/icons';
 import React, { useState, useEffect } from 'react'
-import { axiosInstance } from '../../../../api'
+import { axiosInstance } from '../../../api'
 import RequestDays from './Request'
 import StatusUser from './User'
 import CurrentMonth from './Statistics/CurrentMonth'

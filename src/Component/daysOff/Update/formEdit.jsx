@@ -23,12 +23,10 @@ const FormEdit = ({ change, type, justificationSick, startDay, endDay }) => {
                 border: 'none'
             }} >
             <Form form={form} name="register"
-
                 onFinish={onFinish}
                 scrollToFirstError  >
                 <Row gutter={[8, 24]}>
                     <Col span={16} >
-
                         <Form.Item
                             rules={[
                                 {

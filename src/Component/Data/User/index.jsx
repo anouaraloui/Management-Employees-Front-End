@@ -32,8 +32,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
             xl: 50,
             xxl: 60,
           }} icon={<UserOutlined />} />
-      },
-      
+      },      
       width: 40
     },
     {
@@ -43,16 +42,13 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
         {
           title: 'First Name',
           dataIndex: 'firstName',
-          align: "center",
-          
+          align: "center",          
           width: 55,
-
         },
         {
           title: 'Last Name',
           dataIndex: 'lastName',
-          align: "center",
-          
+          align: "center",          
           width: 55,
         },
       ],
@@ -62,8 +58,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       title: 'Email',
       dataIndex: 'email',
       align: "center",
-      width: 100,
-      
+      width: 100,      
     },
     {
       title: 'Role',
@@ -98,8 +93,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
 
       ],
       filterSearch: true,
-      onFilter: (value, record) => record.role.indexOf(value) === 0,
-      
+      onFilter: (value, record) => record.role.indexOf(value) === 0,      
     },
     {
       title: 'Building',
@@ -121,22 +115,20 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       ],
       filterSearch: true,
       onFilter: (value, record) => record.building.indexOf(value) === 0,
-      width: 50,    
+      width: 50    
     },
     {
       title: 'Phone',
       dataIndex: 'phone',
       align: "center",
-      width: 50,
-      
+      width: 50     
     },
     {
       title: 'Days Off',
       dataIndex: 'allDaysOff',
       sorter: (a, b) => a.allDaysOff - b.allDaysOff,
       align: "center",
-      width: 50,
-      
+      width: 50      
     },
     {
       title: 'Sick',
@@ -165,7 +157,6 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
         return record.isActive === value
       },
       width: 40
-
     },
     {
       title: 'Operation',
@@ -240,7 +231,6 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
           width: 105
         },
       ]
-
     },
     {
       title: 'Email',
@@ -315,8 +305,7 @@ const Data = ({ scrollData, modifiedData, loading, pagination, loadData }) => {
       dataSource={modifiedData}
       bordered
       loading={loading}
-      scroll={scrollData}
-      
+      scroll={scrollData}      
     />
   )
 }

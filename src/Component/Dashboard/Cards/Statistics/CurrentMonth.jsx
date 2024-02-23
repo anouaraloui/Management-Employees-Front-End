@@ -11,8 +11,7 @@ function CurrentMonth({ users, request }) {
       <Row gutter={16}
         style={{
           justifyContent: 'center'
-        }}
-        
+        }}        
       >
         <Col span={4}
         style={{
@@ -45,8 +44,7 @@ function CurrentMonth({ users, request }) {
                   fontSize: '2rem'                
                 }} 
                 formatter={formatter}
-                className='statUser'
-                
+                className='statUser'                
               />
             </Space>
           </Card>
@@ -81,66 +79,14 @@ function CurrentMonth({ users, request }) {
                   fontWeight: 600,
                   fontSize: '2rem'                 
                 }}
-                formatter={formatter} 
-                
+                formatter={formatter}                
               />
             </Space>
           </Card>
         </Col>
       </Row>
-
-      {/* <Col span={6}>
-      <Card bordered={false}
-        style={{
-          marginRight: 20,
-        }}
-        
-      >
-        <Space direction='horizontal' >
-        
-            <UserAddOutlined 
-            style={{
-              color: 'green',
-              backgroundColor: 'rgba(0,255,0,0.25',
-              borderRadius: 20,
-              fontSize: 24,
-              padding: 8
-          }}/>
-          <Statistic
-            title="Add User"
-            value={users}
-          />
-         
-        </Space>
-      </Card>
-    </Col>
-    <Col span={6}>
-    <Card bordered={false}
-      style={{
-        marginRight: 20
-      }}
-      
-    >
-      <Space direction='horizontal' >
-      
-      <CalendarOutlined  
-      style={{
-        color: 'blue',
-        backgroundColor: 'rgba(0,0,255,0.25',
-        borderRadius: 20,
-        fontSize: 24,
-        padding: 8
-    }}/>
-    <Statistic
-      title="Add Request"
-      value={request}
-    />
-   
-  </Space>
-    </Card>
-  </Col> */}
     </>
   )
 }
 
-export default CurrentMonth
+export default CurrentMonth;

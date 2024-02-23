@@ -57,8 +57,7 @@ function Details({  sick,daysOff,firstName, lastName, email, role, building,bala
               style={{
                 fontWeight: 600,
                 color: 'black'
-              }}
-              
+              }}           
             />
           </Form.Item>
           <Form.Item label='Building'>
