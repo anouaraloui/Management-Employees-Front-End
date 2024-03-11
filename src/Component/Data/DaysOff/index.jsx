@@ -155,7 +155,6 @@ const DataDays = ({ scrollData, loadData,  modifiedData,  loading, onDetails }) 
       align: "center",
       render: (_, record) => {
         if (roles.includes(role) && listDecision && modifiedData.length >= 1) {
-          console.log("role", role);
           return <Space>
             <Decision
               loadData={loadData}

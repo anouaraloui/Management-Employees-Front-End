@@ -32,7 +32,6 @@ const MenuDashboard = () => {
   const userId = decodedToken.userId;
   const id = userId;
   const role = decodedToken.role;
-  console.log("role :", role);
 
   const  itemsAdmin= [
     { label: 'Dashboard ', key: "/dashboard", icon: <DashboardOutlined /> },
